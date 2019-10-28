@@ -1,0 +1,6 @@
+framework module Pods_Virtual_Time_Clock___Gerant {
+  umbrella header "Pods-Virtual Time Clock - Gerant-umbrella.h"
+
+  export *
+  module * { export * }
+}
