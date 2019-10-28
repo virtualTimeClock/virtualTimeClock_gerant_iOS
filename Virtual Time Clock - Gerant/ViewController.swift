@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
+    
+    @IBOutlet 
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,9 +13,12 @@
 		555776C1235DC42C00ACC641 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555776BF235DC42C00ACC641 /* Main.storyboard */; };
 		555776C3235DC42D00ACC641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555776C2235DC42D00ACC641 /* Assets.xcassets */; };
 		555776C6235DC42D00ACC641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555776C4235DC42D00ACC641 /* LaunchScreen.storyboard */; };
+		555776D1235DC73900ACC641 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555776D0235DC73900ACC641 /* GoogleService-Info.plist */; };
+		5C476E7AA8B49B2F317DDE99 /* Pods_Virtual_Time_Clock___Gerant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02350124B66D600619EF1188 /* Pods-Virtual Time Clock - Gerant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Time Clock - Gerant.debug.xcconfig"; path = "Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant.debug.xcconfig"; sourceTree = "<group>"; };
 		555776B6235DC42C00ACC641 /* Virtual Time Clock - Gerant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Time Clock - Gerant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		555776B9235DC42C00ACC641 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		555776BB235DC42C00ACC641 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		555776C2235DC42D00ACC641 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		555776C5235DC42D00ACC641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		555776C7235DC42D00ACC641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		555776D0235DC73900ACC641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Virtual_Time_Clock___Gerant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76EA656DEFAE2769957D498D /* Pods-Virtual Time Clock - Gerant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Time Clock - Gerant.release.xcconfig"; path = "Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C476E7AA8B49B2F317DDE99 /* Pods_Virtual_Time_Clock___Gerant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A0639AC65208E32DB75C299 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02350124B66D600619EF1188 /* Pods-Virtual Time Clock - Gerant.debug.xcconfig */,
+				76EA656DEFAE2769957D498D /* Pods-Virtual Time Clock - Gerant.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		555776AD235DC42C00ACC641 = {
 			isa = PBXGroup;
 			children = (
 				555776B8235DC42C00ACC641 /* Virtual Time Clock - Gerant */,
 				555776B7235DC42C00ACC641 /* Products */,
+				2A0639AC65208E32DB75C299 /* Pods */,
+				B79D352747177B5115195C76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +77,7 @@
 			children = (
 				555776B9235DC42C00ACC641 /* AppDelegate.swift */,
 				555776BB235DC42C00ACC641 /* SceneDelegate.swift */,
+				555776D0235DC73900ACC641 /* GoogleService-Info.plist */,
 				555776BD235DC42C00ACC641 /* ViewController.swift */,
 				555776BF235DC42C00ACC641 /* Main.storyboard */,
 				555776C2235DC42D00ACC641 /* Assets.xcassets */,
@@ -67,6 +87,14 @@
 			path = "Virtual Time Clock - Gerant";
 			sourceTree = "<group>";
 		};
+		B79D352747177B5115195C76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 555776CA235DC42D00ACC641 /* Build configuration list for PBXNativeTarget "Virtual Time Clock - Gerant" */;
 			buildPhases = (
+				2753BE1C7617A42D97D85962 /* [CP] Check Pods Manifest.lock */,
 				555776B2235DC42C00ACC641 /* Sources */,
 				555776B3235DC42C00ACC641 /* Frameworks */,
 				555776B4235DC42C00ACC641 /* Resources */,
+				FC74EC9CE9C4246032879DCC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +156,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				555776C6235DC42D00ACC641 /* LaunchScreen.storyboard in Resources */,
+				555776D1235DC73900ACC641 /* GoogleService-Info.plist in Resources */,
 				555776C3235DC42D00ACC641 /* Assets.xcassets in Resources */,
 				555776C1235DC42C00ACC641 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2753BE1C7617A42D97D85962 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Virtual Time Clock - Gerant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC74EC9CE9C4246032879DCC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		555776B2235DC42C00ACC641 /* Sources */ = {
@@ -282,15 +355,17 @@
 		};
 		555776CB235DC42D00ACC641 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02350124B66D600619EF1188 /* Pods-Virtual Time Clock - Gerant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Virtual Time Clock - Gerant/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fr.virtualtimeclock-gerant.Virtual-Time-Clock---Gerant";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fr.virtualtimeclock-gerant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -299,15 +374,17 @@
 		};
 		555776CC235DC42D00ACC641 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76EA656DEFAE2769957D498D /* Pods-Virtual Time Clock - Gerant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Virtual Time Clock - Gerant/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fr.virtualtimeclock-gerant.Virtual-Time-Clock---Gerant";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fr.virtualtimeclock-gerant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
