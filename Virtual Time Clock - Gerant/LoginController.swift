@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class LoginController: UIViewController {
     
     // MARK: Outlet
 
