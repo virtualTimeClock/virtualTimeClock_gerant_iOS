@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 class LoginController: UIViewController {
     
@@ -22,7 +23,9 @@ class LoginController: UIViewController {
     // MARK: Properties
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setupButton()
+        
         
         
     }
@@ -35,7 +38,86 @@ class LoginController: UIViewController {
     
     // MARK: Action
     
+    @IBAction func onClickLogInButton(_ sender: UIButton) {
+        
+        // Connexion de l'utilisateur
+        if mailTF.text != "" && mdpTF.text != "" {
+            Auth.auth().signIn(withEmail: mailTF.text!, password: mdpTF.text!) { (AuthentificationResult, error) in
+                if((error) != nil) { // Erreur d'authentification
+                    print("⛔️ Erreur lors de la connexion de l'utilisateur : " + error.debugDescription)
+                }
+                else { // Authentification réussie
+                    print("✅ Connexion de l'utilisateur " + self.mailTF.text!)
+                    
+                    // On va vérifier que c'est bien un employé
+                    let db = Firestore.firestore()          // Instance de la base de données
+                    let user = Auth.auth().currentUser      // Récupération de l'utilisateur courrant
+                    let userId = user?.uid                  // Id de l'utilisateur courrant
+                    
+                    // Récupération des données de cet utilisateur dans la BD
+                    let documentCurrentUser = db.collection("utilisateurs").document(userId!)
+                    
+                    documentCurrentUser.getDocument { (document, error) in
+                        // On test si le document lié à cet utilisateur existe bien
+                        if let document = document, document.exists {
+                            let isLeader = document.get("isLeader") as! Bool    // Récupération du champ isLeader
+                            if isLeader == true {                              // C'est un employé
+                                print("✅ C'est un leader, je le redirige vers la vue suivante")
+                                self.performSegue(withIdentifier: "loginToHome", sender: self)
+                            }
+                            else { // Ce n'est pas un employé, c'est un gérant !
+                                print("⛔️ C'est un employé, je le déconnecte")
+                                // Déconnexion de l'utilisateur
+                                do {
+                                    try Auth.auth().signOut()
+                                } catch let signOutError as NSError {
+                                  print ("⛔️ Erreur de déconnexion : \(signOutError)")
+                                }
+                            }
+                        }
+                        else {
+                            print("⛔️ Erreur : Le document demandé pour cet utilisateur n'existe pas !")
+                        }
+                    }
+                }
+            }
+        }
+        else { // Les champs ne sont pas remplis
+            print("⛔️ Veuillez remplir les champs !")
+        }
+        
+    }
+    
+    
+    private func setupTextField(){
+        //Liaison avec les délégués
+        mailTF.delegate = self
+        mdpTF.delegate = self
+        
+        //Tap gesture pour fermer le clavier quand on clique dans le vide
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    // MARK: Actions
+    
+    //Fonction appelée par le TapGesture : permet de fermer le clavier
+    @objc private func hideKeyboard(){
+        mailTF.resignFirstResponder()
+        mdpTF.resignFirstResponder()
+    }
+    
     
 
 }
 
+// MARK: Extensions
+//Délégué des TextField
+extension LoginController:UITextFieldDelegate{
+    
+    //Gestion de l'appui sur le bouton return du clavier
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() //Permet de fermer le clavier
+        return true
+    }
+}

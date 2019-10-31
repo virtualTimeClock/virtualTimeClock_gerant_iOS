@@ -14,6 +14,7 @@
 		555776C3235DC42D00ACC641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555776C2235DC42D00ACC641 /* Assets.xcassets */; };
 		555776C6235DC42D00ACC641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555776C4235DC42D00ACC641 /* LaunchScreen.storyboard */; };
 		555776D1235DC73900ACC641 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555776D0235DC73900ACC641 /* GoogleService-Info.plist */; };
+		55C15EED236B03EE009201CA /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C15EEC236B03EE009201CA /* HomeController.swift */; };
 		5C476E7AA8B49B2F317DDE99 /* Pods_Virtual_Time_Clock___Gerant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		555776C5235DC42D00ACC641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		555776C7235DC42D00ACC641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		555776D0235DC73900ACC641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		55C15EEC236B03EE009201CA /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Virtual_Time_Clock___Gerant.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76EA656DEFAE2769957D498D /* Pods-Virtual Time Clock - Gerant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Time Clock - Gerant.release.xcconfig"; path = "Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				555776C2235DC42D00ACC641 /* Assets.xcassets */,
 				555776C4235DC42D00ACC641 /* LaunchScreen.storyboard */,
 				555776C7235DC42D00ACC641 /* Info.plist */,
+				55C15EEC236B03EE009201CA /* HomeController.swift */,
 			);
 			path = "Virtual Time Clock - Gerant";
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				555776BE235DC42C00ACC641 /* LoginController.swift in Sources */,
+				55C15EED236B03EE009201CA /* HomeController.swift in Sources */,
 				555776BA235DC42C00ACC641 /* AppDelegate.swift in Sources */,
 				555776BC235DC42C00ACC641 /* SceneDelegate.swift in Sources */,
 			);

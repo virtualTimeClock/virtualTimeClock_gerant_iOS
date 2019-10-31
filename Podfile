@@ -7,7 +7,9 @@ target 'Virtual Time Clock - Gerant' do
 
   # Pods for Virtual Time Clock - Gerant
   pod 'Firebase/Core'
-  pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
 end
+
