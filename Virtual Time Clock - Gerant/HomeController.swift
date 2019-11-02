@@ -9,22 +9,42 @@
 import UIKit
 
 class HomeController: UIViewController {
-
+    
+    // MARK: Outlet
+    
+    @IBOutlet weak var addEmpBT: UIButton!
+    @IBOutlet weak var listEmpBT: UIButton!
+    @IBOutlet weak var addMissionBT: UIButton!
+    @IBOutlet weak var listMission: UIButton!
+    
+    // MARK: Attributs
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    // MARK: Action
+    
+    
+    @IBAction func addMission(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToAddMission", sender: self)
+    }
+    
+    
+    @IBAction func addEmp(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToAddEmp", sender: self)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func listEmp(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToListEmp", sender: self)
     }
-    */
-
+    
+    
+    @IBAction func listMission(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToListMission", sender: self)
+    }
+    
 }

@@ -13,8 +13,12 @@
 		555776C1235DC42C00ACC641 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555776BF235DC42C00ACC641 /* Main.storyboard */; };
 		555776C3235DC42D00ACC641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555776C2235DC42D00ACC641 /* Assets.xcassets */; };
 		555776C6235DC42D00ACC641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555776C4235DC42D00ACC641 /* LaunchScreen.storyboard */; };
-		555776D1235DC73900ACC641 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555776D0235DC73900ACC641 /* GoogleService-Info.plist */; };
+		558D8D7A236D9AE600E77E35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 558D8D79236D9AE500E77E35 /* GoogleService-Info.plist */; };
 		55C15EED236B03EE009201CA /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C15EEC236B03EE009201CA /* HomeController.swift */; };
+		55D0F697236DA3D9002046F0 /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F696236DA3D9002046F0 /* AddMissionController.swift */; };
+		55D0F699236DAF69002046F0 /* AddEmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F698236DAF69002046F0 /* AddEmployeesController.swift */; };
+		55D0F69B236DB364002046F0 /* ListEmpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F69A236DB364002046F0 /* ListEmpController.swift */; };
+		55D0F69D236DB378002046F0 /* ListMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F69C236DB378002046F0 /* ListMissionController.swift */; };
 		5C476E7AA8B49B2F317DDE99 /* Pods_Virtual_Time_Clock___Gerant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,8 +32,12 @@
 		555776C2235DC42D00ACC641 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		555776C5235DC42D00ACC641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		555776C7235DC42D00ACC641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		555776D0235DC73900ACC641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		558D8D79236D9AE500E77E35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		55C15EEC236B03EE009201CA /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		55D0F696236DA3D9002046F0 /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
+		55D0F698236DAF69002046F0 /* AddEmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeesController.swift; sourceTree = "<group>"; };
+		55D0F69A236DB364002046F0 /* ListEmpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEmpController.swift; sourceTree = "<group>"; };
+		55D0F69C236DB378002046F0 /* ListMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMissionController.swift; sourceTree = "<group>"; };
 		71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Virtual_Time_Clock___Gerant.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76EA656DEFAE2769957D498D /* Pods-Virtual Time Clock - Gerant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Time Clock - Gerant.release.xcconfig"; path = "Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,15 +84,19 @@
 		555776B8235DC42C00ACC641 /* Virtual Time Clock - Gerant */ = {
 			isa = PBXGroup;
 			children = (
+				558D8D79236D9AE500E77E35 /* GoogleService-Info.plist */,
 				555776B9235DC42C00ACC641 /* AppDelegate.swift */,
 				555776BB235DC42C00ACC641 /* SceneDelegate.swift */,
-				555776D0235DC73900ACC641 /* GoogleService-Info.plist */,
 				555776BD235DC42C00ACC641 /* LoginController.swift */,
 				555776BF235DC42C00ACC641 /* Main.storyboard */,
 				555776C2235DC42D00ACC641 /* Assets.xcassets */,
 				555776C4235DC42D00ACC641 /* LaunchScreen.storyboard */,
 				555776C7235DC42D00ACC641 /* Info.plist */,
 				55C15EEC236B03EE009201CA /* HomeController.swift */,
+				55D0F696236DA3D9002046F0 /* AddMissionController.swift */,
+				55D0F698236DAF69002046F0 /* AddEmployeesController.swift */,
+				55D0F69A236DB364002046F0 /* ListEmpController.swift */,
+				55D0F69C236DB378002046F0 /* ListMissionController.swift */,
 			);
 			path = "Virtual Time Clock - Gerant";
 			sourceTree = "<group>";
@@ -158,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				555776C6235DC42D00ACC641 /* LaunchScreen.storyboard in Resources */,
-				555776D1235DC73900ACC641 /* GoogleService-Info.plist in Resources */,
+				558D8D7A236D9AE600E77E35 /* GoogleService-Info.plist in Resources */,
 				555776C3235DC42D00ACC641 /* Assets.xcassets in Resources */,
 				555776C1235DC42C00ACC641 /* Main.storyboard in Resources */,
 			);
@@ -213,10 +225,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D0F69D236DB378002046F0 /* ListMissionController.swift in Sources */,
 				555776BE235DC42C00ACC641 /* LoginController.swift in Sources */,
 				55C15EED236B03EE009201CA /* HomeController.swift in Sources */,
 				555776BA235DC42C00ACC641 /* AppDelegate.swift in Sources */,
+				55D0F69B236DB364002046F0 /* ListEmpController.swift in Sources */,
+				55D0F699236DAF69002046F0 /* AddEmployeesController.swift in Sources */,
 				555776BC235DC42C00ACC641 /* SceneDelegate.swift in Sources */,
+				55D0F697236DA3D9002046F0 /* AddMissionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
