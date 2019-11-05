@@ -14,11 +14,17 @@
 		555776C3235DC42D00ACC641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555776C2235DC42D00ACC641 /* Assets.xcassets */; };
 		555776C6235DC42D00ACC641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555776C4235DC42D00ACC641 /* LaunchScreen.storyboard */; };
 		558D8D7A236D9AE600E77E35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 558D8D79236D9AE500E77E35 /* GoogleService-Info.plist */; };
+		5598FDE823703CCB006D2D5E /* ListMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598FDE723703CCB006D2D5E /* ListMissionController.swift */; };
+		5598FDEA23703D5A006D2D5E /* CellMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598FDE923703D5A006D2D5E /* CellMission.swift */; };
+		5598FDEC237042D8006D2D5E /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598FDEB237042D8006D2D5E /* Mission.swift */; };
+		5598FDF023704D3B006D2D5E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598FDEF23704D3B006D2D5E /* TableViewController.swift */; };
+		5598FDF223704DA3006D2D5E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598FDF123704DA3006D2D5E /* TableViewCell.swift */; };
+		5598FDF423705760006D2D5E /* MissionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598FDF323705760006D2D5E /* MissionDetailController.swift */; };
+		55A471A7236DCA8F00918107 /* PwdUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A471A6236DCA8F00918107 /* PwdUserController.swift */; };
 		55C15EED236B03EE009201CA /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C15EEC236B03EE009201CA /* HomeController.swift */; };
 		55D0F697236DA3D9002046F0 /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F696236DA3D9002046F0 /* AddMissionController.swift */; };
 		55D0F699236DAF69002046F0 /* AddEmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F698236DAF69002046F0 /* AddEmployeesController.swift */; };
 		55D0F69B236DB364002046F0 /* ListEmpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F69A236DB364002046F0 /* ListEmpController.swift */; };
-		55D0F69D236DB378002046F0 /* ListMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F69C236DB378002046F0 /* ListMissionController.swift */; };
 		5C476E7AA8B49B2F317DDE99 /* Pods_Virtual_Time_Clock___Gerant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,11 +39,17 @@
 		555776C5235DC42D00ACC641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		555776C7235DC42D00ACC641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		558D8D79236D9AE500E77E35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5598FDE723703CCB006D2D5E /* ListMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMissionController.swift; sourceTree = "<group>"; };
+		5598FDE923703D5A006D2D5E /* CellMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMission.swift; sourceTree = "<group>"; };
+		5598FDEB237042D8006D2D5E /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		5598FDEF23704D3B006D2D5E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		5598FDF123704DA3006D2D5E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		5598FDF323705760006D2D5E /* MissionDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailController.swift; sourceTree = "<group>"; };
+		55A471A6236DCA8F00918107 /* PwdUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdUserController.swift; sourceTree = "<group>"; };
 		55C15EEC236B03EE009201CA /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		55D0F696236DA3D9002046F0 /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
 		55D0F698236DAF69002046F0 /* AddEmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeesController.swift; sourceTree = "<group>"; };
 		55D0F69A236DB364002046F0 /* ListEmpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEmpController.swift; sourceTree = "<group>"; };
-		55D0F69C236DB378002046F0 /* ListMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMissionController.swift; sourceTree = "<group>"; };
 		71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Virtual_Time_Clock___Gerant.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76EA656DEFAE2769957D498D /* Pods-Virtual Time Clock - Gerant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Time Clock - Gerant.release.xcconfig"; path = "Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +108,13 @@
 				55D0F696236DA3D9002046F0 /* AddMissionController.swift */,
 				55D0F698236DAF69002046F0 /* AddEmployeesController.swift */,
 				55D0F69A236DB364002046F0 /* ListEmpController.swift */,
-				55D0F69C236DB378002046F0 /* ListMissionController.swift */,
+				55A471A6236DCA8F00918107 /* PwdUserController.swift */,
+				5598FDE723703CCB006D2D5E /* ListMissionController.swift */,
+				5598FDE923703D5A006D2D5E /* CellMission.swift */,
+				5598FDEB237042D8006D2D5E /* Mission.swift */,
+				5598FDEF23704D3B006D2D5E /* TableViewController.swift */,
+				5598FDF123704DA3006D2D5E /* TableViewCell.swift */,
+				5598FDF323705760006D2D5E /* MissionDetailController.swift */,
 			);
 			path = "Virtual Time Clock - Gerant";
 			sourceTree = "<group>";
@@ -225,12 +243,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D0F69D236DB378002046F0 /* ListMissionController.swift in Sources */,
+				5598FDF223704DA3006D2D5E /* TableViewCell.swift in Sources */,
+				5598FDEC237042D8006D2D5E /* Mission.swift in Sources */,
+				5598FDEA23703D5A006D2D5E /* CellMission.swift in Sources */,
 				555776BE235DC42C00ACC641 /* LoginController.swift in Sources */,
 				55C15EED236B03EE009201CA /* HomeController.swift in Sources */,
+				55A471A7236DCA8F00918107 /* PwdUserController.swift in Sources */,
 				555776BA235DC42C00ACC641 /* AppDelegate.swift in Sources */,
+				5598FDE823703CCB006D2D5E /* ListMissionController.swift in Sources */,
+				5598FDF023704D3B006D2D5E /* TableViewController.swift in Sources */,
 				55D0F69B236DB364002046F0 /* ListEmpController.swift in Sources */,
 				55D0F699236DAF69002046F0 /* AddEmployeesController.swift in Sources */,
+				5598FDF423705760006D2D5E /* MissionDetailController.swift in Sources */,
 				555776BC235DC42C00ACC641 /* SceneDelegate.swift in Sources */,
 				55D0F697236DA3D9002046F0 /* AddMissionController.swift in Sources */,
 			);

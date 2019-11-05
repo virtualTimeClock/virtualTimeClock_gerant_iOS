@@ -43,8 +43,10 @@ class HomeController: UIViewController {
     }
     
     
+    
     @IBAction func listMission(_ sender: UIButton) {
         performSegue(withIdentifier: "goToListMission", sender: self)
+        
     }
     
 }

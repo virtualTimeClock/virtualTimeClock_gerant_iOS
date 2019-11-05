@@ -63,6 +63,19 @@ class AddEmployeesController: UIViewController {
     
     
     @IBAction func confirm(_ sender: UIButton) {
+        
+        let db = Firestore.firestore()
+        let userDoc = db.collection("utilisateurs")
+        
+        userDoc.document().setData([
+            "dateNaissance": bornTF.text ?? "???",
+            "isLeader": false,
+            "nom": nameTF.text ?? "???",
+            "prenom": firstnameTF.text ?? "???",
+        ])
+        
+        performSegue(withIdentifier: "goToPwd", sender: self)
+
     }
     
     

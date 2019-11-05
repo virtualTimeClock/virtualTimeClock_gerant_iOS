@@ -35,6 +35,7 @@ class LoginController: UIViewController {
     
     private func setupButton(){
         conectTF.layer.cornerRadius = 20
+        
     }
     
     private func setupTextField(){

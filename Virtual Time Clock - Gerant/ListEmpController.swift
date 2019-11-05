@@ -14,7 +14,7 @@ class ListEmpController: UIViewController {
     // MARK: Outlet
     
     
-    @IBOutlet weak var listEmpTV: UITableView!
+
     
     // MARK: Attributs
     

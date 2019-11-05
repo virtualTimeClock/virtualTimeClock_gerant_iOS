@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class AddMissionController: UIViewController {
     
@@ -80,6 +82,43 @@ class AddMissionController: UIViewController {
     
     
     @IBAction func confirm(_ sender: UIButton) {
+        
+        let db = Firestore.firestore()
+        let userDoc = db.collection("missions")
+        
+        let dateCourante: Timestamp = Timestamp(date: Date())
+        let dateCourante2: Timestamp = Timestamp(date: Date())
+        
+        
+        
+        let getLatText: String = ""+latitudeTF.text!
+        let latConvertDouble = Double(getLatText)
+        let lat : Double = Double(latConvertDouble!)
+        
+        let getLongText: String = ""+longitudeTF.text!
+        let longConvertDouble = Double(getLongText)
+        let long : Double = Double(longConvertDouble!)
+        
+        
+        let pos: GeoPoint = GeoPoint(latitude: lat, longitude: long)
+        
+        
+        
+        /*Timestamp().dateValue()*/
+        
+        /*DateFormatter*/
+        
+        userDoc.document().setData([
+            "debut": dateCourante,
+            "description": descTF.text!,
+            "fin": dateCourante2,
+            "lieu": lieuTF.text ?? "",
+            "localisation": pos,
+            "rayon": rayonTF.text ?? "",
+            "titre": titleTF.text ?? "",
+            
+        ])
+        
     }
     
 
@@ -95,3 +134,4 @@ extension AddMissionController:UITextFieldDelegate{
         return true
     }
 }
+
