@@ -27,6 +27,11 @@ class LoginController: UIViewController {
         setupButton()
         setupTextField()
         
+        /*
+        if let user = Auth.auth().currentUser {
+            
+        }*/
+        
         
         
     }

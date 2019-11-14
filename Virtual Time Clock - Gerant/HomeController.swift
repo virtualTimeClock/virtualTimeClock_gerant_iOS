@@ -8,45 +8,74 @@
 
 import UIKit
 
-class HomeController: UIViewController {
+class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     // MARK: Outlet
     
-    @IBOutlet weak var addEmpBT: UIButton!
-    @IBOutlet weak var listEmpBT: UIButton!
-    @IBOutlet weak var addMissionBT: UIButton!
-    @IBOutlet weak var listMission: UIButton!
+    @IBOutlet weak var lab: UILabel!
+    @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var capture: UIButton!
     
     // MARK: Attributs
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         
     }
     
     // MARK: Action
     
+    var imagePicker: UIImagePickerController!
     
-    @IBAction func addMission(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToAddMission", sender: self)
-    }
+    @IBAction func captureAndSave(_ sender: Any) {
+        
     
-    
-    @IBAction func addEmp(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToAddEmp", sender: self)
-    }
-    
-
-    @IBAction func listEmp(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToListEmp", sender: self)
-    }
-    
-    
-    
-    @IBAction func listMission(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToListMission", sender: self)
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            } else {
+                print("Camera not available")
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+        
         
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        img.image = image
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    
+    
     
 }

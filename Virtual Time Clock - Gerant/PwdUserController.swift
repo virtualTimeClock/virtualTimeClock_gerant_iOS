@@ -21,7 +21,7 @@ class PwdUserController: UIViewController {
     
     @IBOutlet weak var mailTF: UITextField!
     
-    @IBOutlet weak var pwdTF: UITextField!
+    @IBOutlet weak var mailTF2: UITextField!
     
     @IBOutlet weak var confirmBT: UIButton!
     

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class ListEmpController: UIViewController {
 
@@ -17,6 +19,9 @@ class ListEmpController: UIViewController {
 
     
     // MARK: Attributs
+    
+    let db = Firestore.firestore()
+    var users: [Users] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

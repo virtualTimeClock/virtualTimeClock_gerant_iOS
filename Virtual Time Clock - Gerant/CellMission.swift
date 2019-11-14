@@ -16,10 +16,10 @@ class CellMission: UITableViewCell {
     @IBOutlet weak var lieu: UILabel!
     
     
-    @IBOutlet weak var dateH: UILabel!
-    
     @IBOutlet weak var desc: UILabel!
     
+    
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,6 +30,12 @@ class CellMission: UITableViewCell {
 
         
     }
+    
+    // MARK: Actions
+    
+    
+    
+    
     
     // Fonction qui va extraire les informations nécessaires dans une instance de Mission donnée en paramètre
     func populate(mission: Mission) {
