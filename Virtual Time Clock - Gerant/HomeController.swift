@@ -76,10 +76,16 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        //let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         //let image = info[UIImagePickerController.InfoKey.cropRect] as! UIImage
         
-        img.image = image
+        if let image = info[.editedImage] as? UIImage {
+            img.image = image
+        } else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            img.image = image
+        } 
+        
+        
         
         
         //Lien avec l'espace de stockage du serveur Firebase
