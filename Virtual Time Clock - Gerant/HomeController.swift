@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseFirestore
+import FirebaseUI
+
+
+
 
 class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -21,7 +27,15 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
         
+    }
+    
+    private func setup(){
+        capture.layer.cornerRadius = 20
+        img.layer.borderWidth = 10
+        //let color = UIColor(rgb: 0xD84E21)
+        img.layer.borderColor = UIColor.orange.cgColor
         
     }
     
@@ -35,6 +49,7 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
         
         let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
         
@@ -60,22 +75,54 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        //let image = info[UIImagePickerController.InfoKey.cropRect] as! UIImage
+        
         img.image = image
+        
+        
+        //Lien avec l'espace de stockage du serveur Firebase
+        let storage = Storage.storage()
+        //Creation de la reference de l'image (chemin d'acces)
+        let imagesRef = storage.reference().child("Photos/profilePic")
+        
+        //création des metadata avec le type de la ressource
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        
+        
+        
+        //mise en memoire sous forme de data
+        if let uploadData = self.img.image!.jpegData(compressionQuality: 0.75) {
+        
+            //upload l'image sur la base
+            imagesRef.putData(uploadData, metadata: metaData) { (metadata, error) in
+                if error != nil {
+                    print("error")
+                    
+                } else {
+                    print("Image Upload sur le serveur")
+                    
+                }
+           }
+        
         
         picker.dismiss(animated: true, completion: nil)
         
     }
+    
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    
+    
+    
     }
     
-    
-    
-    
 }
+

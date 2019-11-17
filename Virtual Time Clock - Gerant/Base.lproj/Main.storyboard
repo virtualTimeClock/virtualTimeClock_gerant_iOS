@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i7G-jQ-qee">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i7G-jQ-qee">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -105,36 +105,43 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entreprise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QA4-yh-ZnV">
                                 <rect key="frame" x="148.5" y="77" width="78" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Cm4-dh-VUV">
-                                <rect key="frame" x="67" y="198.5" width="240" height="239"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="75247383_435788737138108_6114700769871527936_n" translatesAutoresizingMaskIntoConstraints="NO" id="Cm4-dh-VUV">
+                                <rect key="frame" x="67" y="146" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="e2d-fG-kuM"/>
                                     <constraint firstAttribute="height" constant="240" id="sBc-UD-pPl"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V0-9M-zLv">
-                                <rect key="frame" x="116" y="460" width="143" height="30"/>
-                                <state key="normal" title="Take photo and send"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V0-9M-zLv">
+                                <rect key="frame" x="67" y="450" width="240" height="40"/>
+                                <color key="backgroundColor" red="0.84705882352941175" green="0.30588235294117649" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="nee-Lw-9XP"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="njR-VJ-C10"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title=" Capture and Upload" image="ic_photo"/>
                                 <connections>
                                     <action selector="captureAndSave:" destination="d7N-rM-kxY" eventType="touchUpInside" id="90N-xF-nar"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Cm4-dh-VUV" firstAttribute="leading" secondItem="12X-Qm-j1c" secondAttribute="leading" constant="67" id="5tr-LU-UOG"/>
-                            <constraint firstItem="Cm4-dh-VUV" firstAttribute="top" secondItem="QA4-yh-ZnV" secondAttribute="bottom" constant="100" id="GJ1-Wd-26U"/>
-                            <constraint firstItem="7V0-9M-zLv" firstAttribute="leading" secondItem="12X-Qm-j1c" secondAttribute="leading" constant="116" id="Oia-RE-NlT"/>
+                            <constraint firstItem="Cm4-dh-VUV" firstAttribute="top" secondItem="QA4-yh-ZnV" secondAttribute="bottom" constant="48" id="Kd1-eT-7bs"/>
+                            <constraint firstItem="7V0-9M-zLv" firstAttribute="leading" secondItem="12X-Qm-j1c" secondAttribute="leading" constant="67" id="cKG-az-XtB"/>
                             <constraint firstItem="QA4-yh-ZnV" firstAttribute="centerX" secondItem="ajh-Jb-VV0" secondAttribute="centerX" id="gFT-Nq-E04"/>
                             <constraint firstItem="QA4-yh-ZnV" firstAttribute="top" secondItem="12X-Qm-j1c" secondAttribute="top" constant="77" id="gXt-or-yPk"/>
-                            <constraint firstItem="12X-Qm-j1c" firstAttribute="bottom" secondItem="7V0-9M-zLv" secondAttribute="bottom" constant="128" id="i9O-NF-SPK"/>
+                            <constraint firstItem="12X-Qm-j1c" firstAttribute="bottom" secondItem="7V0-9M-zLv" secondAttribute="bottom" constant="128" id="ovm-GP-h0e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="12X-Qm-j1c"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="person.circle.fill" catalog="system" id="QU9-D1-Ykx"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ic_profile" selectedImage="ic_profile_selected" id="QU9-D1-Ykx"/>
                     <navigationItem key="navigationItem" id="KLK-GR-8V9"/>
                     <connections>
                         <outlet property="capture" destination="7V0-9M-zLv" id="aVA-H0-RCu"/>
@@ -197,7 +204,7 @@
                             <outlet property="delegate" destination="OQL-tO-R1f" id="ebC-3s-wfy"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Mission" selectedImage="doc.plaintext" catalog="system" id="BbT-JP-f4S"/>
+                    <tabBarItem key="tabBarItem" title="Mission" image="ic_mission" selectedImage="ic_mission_selected" id="BbT-JP-f4S"/>
                     <navigationItem key="navigationItem" id="NNF-iJ-XnE"/>
                     <connections>
                         <segue destination="yrU-pM-HhR" kind="presentation" identifier="goDetailsMission" modalPresentationStyle="fullScreen" id="iEe-n5-SSJ"/>
@@ -251,7 +258,7 @@
                             <outlet property="delegate" destination="ZrP-IP-3x9" id="Ztb-La-2o6"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Employees" selectedImage="person.3.fill" catalog="system" id="8eq-Id-Ix1"/>
+                    <tabBarItem key="tabBarItem" title="Employees" image="ic_employee" selectedImage="ic_employee_selected" id="8eq-Id-Ix1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvf-6s-jzh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -320,7 +327,7 @@
             <objects>
                 <viewController id="dpv-kg-5dm" customClass="AddMissionController" customModule="Virtual_Time_Clock___Gerant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uzu-qT-smt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ed7-L7-guu">
@@ -476,7 +483,7 @@
                             <action selector="logout:" destination="5St-gH-yHO" eventType="touchUpInside" id="R7K-Fo-Gmb"/>
                         </connections>
                     </button>
-                    <tabBarItem key="tabBarItem" title="Logout" selectedImage="power" catalog="system" id="Cx4-3d-chY"/>
+                    <tabBarItem key="tabBarItem" title="Logout" image="ic_logout" id="Cx4-3d-chY"/>
                     <connections>
                         <outlet property="logoutOT" destination="8Gg-4e-ngC" id="tQR-8V-Xac"/>
                     </connections>
@@ -511,7 +518,7 @@
             <objects>
                 <viewController id="qEC-pc-Tej" customClass="PwdUserController" customModule="Virtual_Time_Clock___Gerant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="idV-yJ-PxH" customClass="Pw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nAx-sq-J4c">
@@ -681,9 +688,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="doc.plaintext" catalog="system" width="56" height="64"/>
-        <image name="person.3.fill" catalog="system" width="71" height="34"/>
-        <image name="person.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="power" catalog="system" width="64" height="62"/>
+        <image name="75247383_435788737138108_6114700769871527936_n" width="72" height="72"/>
+        <image name="ic_employee" width="36" height="36"/>
+        <image name="ic_employee_selected" width="36" height="36"/>
+        <image name="ic_logout" width="36" height="36"/>
+        <image name="ic_mission" width="36" height="36"/>
+        <image name="ic_mission_selected" width="36" height="36"/>
+        <image name="ic_photo" width="36" height="36"/>
+        <image name="ic_profile" width="36" height="36"/>
+        <image name="ic_profile_selected" width="36" height="36"/>
     </resources>
 </document>

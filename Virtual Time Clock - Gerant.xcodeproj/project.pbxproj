@@ -56,7 +56,7 @@
 		55C15EEC236B03EE009201CA /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		55D0F696236DA3D9002046F0 /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
 		55D0F698236DAF69002046F0 /* AddEmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeesController.swift; sourceTree = "<group>"; };
-		71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Virtual_Time_Clock___Gerant.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Virtual_Time_Clock___Gerant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76EA656DEFAE2769957D498D /* Pods-Virtual Time Clock - Gerant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Time Clock - Gerant.release.xcconfig"; path = "Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +148,7 @@
 				555776B3235DC42C00ACC641 /* Frameworks */,
 				555776B4235DC42C00ACC641 /* Resources */,
 				FC74EC9CE9C4246032879DCC /* [CP] Embed Pods Frameworks */,
+				1D793721876D2E30A6365278 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,6 +207,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1D793721876D2E30A6365278 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2753BE1C7617A42D97D85962 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

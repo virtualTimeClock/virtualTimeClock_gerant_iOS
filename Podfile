@@ -10,6 +10,9 @@ target 'Virtual Time Clock - Gerant' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI'
+  
 
 end
 
