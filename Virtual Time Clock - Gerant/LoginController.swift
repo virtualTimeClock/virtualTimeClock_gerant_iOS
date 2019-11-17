@@ -29,7 +29,11 @@ class LoginController: UIViewController {
         
         /*
         if let user = Auth.auth().currentUser {
+            print("✅ Un utilisateur est déjà connecté : \(user.email ?? "")")
+            performSegue(withIdentifier: "loginToHome", sender: self)
             
+        } else {
+            print("ℹ️ Aucun utilisateur n'est connecté.")
         }*/
         
         

@@ -29,11 +29,28 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         setup()
         
+        //Lien avec l'espace de stockage du serveur Firebase
+        let storage = Storage.storage()
+        //Creation de la reference de l'image (chemin d'acces)
+        let imagesRef = storage.reference().child("Photos/profilePic")
+        
+        //création des metadata avec le type de la ressource
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        
+        
+        imagesRef.getMetadata { (metaData, error) in
+            self.img.sd_setImage(with: imagesRef)
+        }
+        
+        
+        
+        
     }
     
     private func setup(){
         capture.layer.cornerRadius = 20
-        img.layer.borderWidth = 10
+        img.layer.borderWidth = 1
         //let color = UIColor(rgb: 0xD84E21)
         img.layer.borderColor = UIColor.orange.cgColor
         
@@ -83,7 +100,7 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
             img.image = image
         } else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             img.image = image
-        } 
+        }
         
         
         
