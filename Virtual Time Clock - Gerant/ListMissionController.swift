@@ -27,6 +27,14 @@ class ListMissionController: UITableViewController {
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToCreateMission))
+    }
+    
+    @objc func goToCreateMission(){
+        performSegue(withIdentifier: "goToAddMission", sender: self)
+    }
 
     // MARK: - Table view data source
 
@@ -121,7 +129,7 @@ class ListMissionController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // On test si le segue est bien celui qu'on espère
-        if segue.identifier == "goToDetailsMission" {
+        if segue.identifier == "goDetailsMission" {
             
             // Récupération de la destination du segue
             let destination = segue.destination as! MissionDetailController

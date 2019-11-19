@@ -23,7 +23,6 @@ class AddMissionController: UIViewController {
     @IBOutlet weak var lieuTF: UITextField!
     @IBOutlet weak var descTF: UITextField!
     @IBOutlet weak var confirmBT: UIButton!
-    @IBOutlet weak var cancelBT: UIButton!
     
     // MARK: Attributs
     
@@ -73,11 +72,6 @@ class AddMissionController: UIViewController {
         rayonTF.resignFirstResponder()
         lieuTF.resignFirstResponder()
         descTF.resignFirstResponder()
-    }
-    
-    
-    @IBAction func cancel(_ sender: UIButton) {
-        performSegue(withIdentifier: "missionToHome", sender: self)
     }
     
     

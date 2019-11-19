@@ -41,6 +41,7 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         imagesRef.getMetadata { (metaData, error) in
             self.img.sd_setImage(with: imagesRef)
+            
         }
         
         

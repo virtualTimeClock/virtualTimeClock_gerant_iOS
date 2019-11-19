@@ -17,7 +17,7 @@ class MissionDetailController: UIViewController {
     
 
     
-    var mission: Mission?
+    var mission: Mission? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()

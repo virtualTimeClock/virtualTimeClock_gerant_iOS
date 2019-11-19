@@ -24,7 +24,6 @@
 		55AAE0582372D68800EDA0B2 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AAE0572372D68800EDA0B2 /* Users.swift */; };
 		55AAE05A2372D9B700EDA0B2 /* ListEmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AAE0592372D9B700EDA0B2 /* ListEmployeesController.swift */; };
 		55AAE05C2372DEA300EDA0B2 /* CellUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AAE05B2372DEA300EDA0B2 /* CellUsers.swift */; };
-		55AAE05E237302E600EDA0B2 /* LogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AAE05D237302E600EDA0B2 /* LogoutController.swift */; };
 		55C15EED236B03EE009201CA /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C15EEC236B03EE009201CA /* HomeController.swift */; };
 		55D0F697236DA3D9002046F0 /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F696236DA3D9002046F0 /* AddMissionController.swift */; };
 		55D0F699236DAF69002046F0 /* AddEmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F698236DAF69002046F0 /* AddEmployeesController.swift */; };
@@ -52,11 +51,10 @@
 		55AAE0572372D68800EDA0B2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		55AAE0592372D9B700EDA0B2 /* ListEmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEmployeesController.swift; sourceTree = "<group>"; };
 		55AAE05B2372DEA300EDA0B2 /* CellUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellUsers.swift; sourceTree = "<group>"; };
-		55AAE05D237302E600EDA0B2 /* LogoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutController.swift; sourceTree = "<group>"; };
 		55C15EEC236B03EE009201CA /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		55D0F696236DA3D9002046F0 /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
 		55D0F698236DAF69002046F0 /* AddEmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeesController.swift; sourceTree = "<group>"; };
-		71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Virtual_Time_Clock___Gerant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A418F024CDF050EB58AF81 /* Pods_Virtual_Time_Clock___Gerant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Virtual_Time_Clock___Gerant.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76EA656DEFAE2769957D498D /* Pods-Virtual Time Clock - Gerant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Time Clock - Gerant.release.xcconfig"; path = "Target Support Files/Pods-Virtual Time Clock - Gerant/Pods-Virtual Time Clock - Gerant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +121,6 @@
 				55AAE0572372D68800EDA0B2 /* Users.swift */,
 				55AAE0592372D9B700EDA0B2 /* ListEmployeesController.swift */,
 				55AAE05B2372DEA300EDA0B2 /* CellUsers.swift */,
-				55AAE05D237302E600EDA0B2 /* LogoutController.swift */,
 			);
 			path = "Virtual Time Clock - Gerant";
 			sourceTree = "<group>";
@@ -274,7 +271,6 @@
 				5598FDEC237042D8006D2D5E /* Mission.swift in Sources */,
 				5598FDEA23703D5A006D2D5E /* CellMission.swift in Sources */,
 				555776BE235DC42C00ACC641 /* LoginController.swift in Sources */,
-				55AAE05E237302E600EDA0B2 /* LogoutController.swift in Sources */,
 				55C15EED236B03EE009201CA /* HomeController.swift in Sources */,
 				55A471A7236DCA8F00918107 /* PwdUserController.swift in Sources */,
 				555776BA235DC42C00ACC641 /* AppDelegate.swift in Sources */,
