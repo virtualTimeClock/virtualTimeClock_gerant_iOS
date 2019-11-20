@@ -10,11 +10,11 @@ import UIKit
 import FirebaseStorage
 import FirebaseFirestore
 import FirebaseUI
+import AVFoundation
 
 
 
-
-class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVAudioPlayerDelegate{
     
     // MARK: Outlet
     
@@ -23,6 +23,8 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var capture: UIButton!
     
     // MARK: Attributs
+    
+    var player: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +65,16 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func captureAndSave(_ sender: Any) {
         
-    
+        // On va jouer le son
+        if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                self.player.delegate = self
+                self.player.play()
+            }
+            catch { print("⛔️ Erreur lors de la lecture du son") }
+        }
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -73,11 +84,23 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
             if UIImagePickerController.isSourceTypeAvailable(.camera){
+                // On va jouer le son
+                if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
+                    let fileURL = URL(fileURLWithPath: soundFilePath)
+                    do {
+                        try self.player = AVAudioPlayer(contentsOf: fileURL)
+                        self.player.delegate = self
+                        self.player.play()
+                    }
+                    catch { print("⛔️ Erreur lors de la lecture du son") }
+                }
+                
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)
             } else {
                 print("Camera not available")
             }
+            
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
@@ -127,6 +150,16 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     
                 } else {
                     print("Image Upload sur le serveur")
+                    // On va jouer le son
+                    if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
+                        let fileURL = URL(fileURLWithPath: soundFilePath)
+                        do {
+                            try self.player = AVAudioPlayer(contentsOf: fileURL)
+                            self.player.delegate = self
+                            self.player.play()
+                        }
+                        catch { print("⛔️ Erreur lors de la lecture du son") }
+                    }
                     
                 }
            }

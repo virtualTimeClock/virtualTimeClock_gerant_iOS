@@ -10,8 +10,9 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import Toast_Swift
+import AVFoundation
 
-class AddEmployeesController: UIViewController {
+class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
     
     // MARK: Outlet
     
@@ -25,6 +26,7 @@ class AddEmployeesController: UIViewController {
     // MARK: Attribut
     
     private var datePicker: UIDatePicker?
+    var player: AVAudioPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,6 +135,17 @@ class AddEmployeesController: UIViewController {
         }
         
         self.view.makeToast("Le compte a été crée")
+        
+        // On va jouer le son
+        if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                self.player.delegate = self
+                self.player.play()
+            }
+            catch { print("⛔️ Erreur lors de la lecture du son") }
+        }
 
     }
     

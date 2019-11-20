@@ -1,0 +1,150 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "08z-OG-t5l"; */
+"08z-OG-t5l.text" = "Label";
+
+/* Class = "UILabel"; text = "titre"; ObjectID = "0d2-g4-o3L"; */
+"0d2-g4-o3L.text" = "titre";
+
+/* Class = "UILabel"; text = "rayon"; ObjectID = "27l-7k-YGE"; */
+"27l-7k-YGE.text" = "rayon";
+
+/* Class = "UIButton"; normalTitle = " Capture and Upload"; ObjectID = "7V0-9M-zLv"; */
+"7V0-9M-zLv.normalTitle" = " Capture and Upload";
+
+/* Class = "UILabel"; text = "Titre"; ObjectID = "7dA-Yo-JTB"; */
+"7dA-Yo-JTB.text" = "Titre";
+
+/* Class = "UITabBarItem"; title = "Employees"; ObjectID = "8eq-Id-Ix1"; */
+"8eq-Id-Ix1.title" = "Employees";
+
+/* Class = "UILabel"; text = "lieu"; ObjectID = "93w-xL-b35"; */
+"93w-xL-b35.text" = "lieu";
+
+/* Class = "UITabBarItem"; title = "Mission"; ObjectID = "BbT-JP-f4S"; */
+"BbT-JP-f4S.title" = "Mission";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "CxQ-M4-l0y"; */
+"CxQ-M4-l0y.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "longitude"; ObjectID = "DbI-NG-KGe"; */
+"DbI-NG-KGe.text" = "longitude";
+
+/* Class = "UIButton"; normalTitle = "To confirm"; ObjectID = "EDS-rM-VMW"; */
+"EDS-rM-VMW.normalTitle" = "To confirm";
+
+/* Class = "UILabel"; text = "Fin"; ObjectID = "FBB-bq-prl"; */
+"FBB-bq-prl.text" = "Fin";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "FfZ-E9-vll"; */
+"FfZ-E9-vll.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Début"; ObjectID = "HOO-cx-THh"; */
+"HOO-cx-THh.text" = "Début";
+
+/* Class = "UITextField"; placeholder = "Lieu"; ObjectID = "IBf-oc-z5q"; */
+"IBf-oc-z5q.placeholder" = "Lieu";
+
+/* Class = "UITextField"; placeholder = "Date stop"; ObjectID = "IXL-fh-aOD"; */
+"IXL-fh-aOD.placeholder" = "Date stop";
+
+/* Class = "UITextField"; placeholder = "Longitude"; ObjectID = "IaK-bb-Liq"; */
+"IaK-bb-Liq.placeholder" = "Longitude";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "MSV-Gi-P5F"; */
+"MSV-Gi-P5F.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "To confirm"; ObjectID = "NOA-vK-gcZ"; */
+"NOA-vK-gcZ.normalTitle" = "To confirm";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "PJI-yg-ygK"; */
+"PJI-yg-ygK.text" = "Description";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "Q05-EG-OvV"; */
+"Q05-EG-OvV.placeholder" = "Username";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Q7E-vZ-xuQ"; */
+"Q7E-vZ-xuQ.text" = "Label";
+
+/* Class = "UILabel"; text = "Entreprise"; ObjectID = "QA4-yh-ZnV"; */
+"QA4-yh-ZnV.text" = "Entreprise";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "QU9-D1-Ykx"; */
+"QU9-D1-Ykx.title" = "Profile";
+
+/* Class = "UILabel"; text = "Longitude"; ObjectID = "Rzh-cp-LsR"; */
+"Rzh-cp-LsR.text" = "Longitude";
+
+/* Class = "UILabel"; text = "latitude"; ObjectID = "Skw-uh-d5w"; */
+"Skw-uh-d5w.text" = "latitude";
+
+/* Class = "UILabel"; text = "fin"; ObjectID = "T9I-2W-s35"; */
+"T9I-2W-s35.text" = "fin";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "acR-8v-uvL"; */
+"acR-8v-uvL.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "Date start"; ObjectID = "b9T-mg-ipL"; */
+"b9T-mg-ipL.placeholder" = "Date start";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "b9U-7S-HUi"; */
+"b9U-7S-HUi.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "d4T-Yd-hyZ"; */
+"d4T-Yd-hyZ.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "FirstName"; ObjectID = "eSM-jy-vwe"; */
+"eSM-jy-vwe.placeholder" = "FirstName";
+
+/* Class = "UITextField"; placeholder = "Rayon"; ObjectID = "fDV-Qr-Sff"; */
+"fDV-Qr-Sff.placeholder" = "Rayon";
+
+/* Class = "UILabel"; text = "Mission détaillée"; ObjectID = "hAO-RF-wfj"; */
+"hAO-RF-wfj.text" = "Mission détaillée";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "hKz-bF-e2h"; */
+"hKz-bF-e2h.placeholder" = "Name";
+
+/* Class = "UITextField"; placeholder = "Latitude"; ObjectID = "ji0-aQ-Wex"; */
+"ji0-aQ-Wex.placeholder" = "Latitude";
+
+/* Class = "UIButton"; normalTitle = "Connexion"; ObjectID = "lh0-IW-GIH"; */
+"lh0-IW-GIH.normalTitle" = "Connexion";
+
+/* Class = "UILabel"; text = "bhzebfjzbfhjzbhvhvhhf"; ObjectID = "mOK-Sj-7Jk"; */
+"mOK-Sj-7Jk.text" = "bhzebfjzbfhjzbhvhvhhf";
+
+/* Class = "UILabel"; text = "Lieu"; ObjectID = "nH2-7z-Pc2"; */
+"nH2-7z-Pc2.text" = "Lieu";
+
+/* Class = "UILabel"; text = "debut"; ObjectID = "o70-Xh-6tt"; */
+"o70-Xh-6tt.text" = "debut";
+
+/* Class = "UITextField"; placeholder = "Description"; ObjectID = "sPW-0w-NtQ"; */
+"sPW-0w-NtQ.placeholder" = "Description";
+
+/* Class = "UILabel"; text = "lieu"; ObjectID = "thA-vm-fkI"; */
+"thA-vm-fkI.text" = "lieu";
+
+/* Class = "UITextField"; placeholder = "Title"; ObjectID = "trI-yE-j53"; */
+"trI-yE-j53.placeholder" = "Title";
+
+/* Class = "UILabel"; text = "Titre"; ObjectID = "v37-nV-18n"; */
+"v37-nV-18n.text" = "Titre";
+
+/* Class = "UILabel"; text = "Rayon"; ObjectID = "vCV-ix-tKh"; */
+"vCV-ix-tKh.text" = "Rayon";
+
+/* Class = "UITextField"; placeholder = "Birthday"; ObjectID = "vWh-VN-ror"; */
+"vWh-VN-ror.placeholder" = "Birthday";
+
+/* Class = "UILabel"; text = "description"; ObjectID = "xQM-DW-3Uh"; */
+"xQM-DW-3Uh.text" = "description";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "xrf-4V-ue6"; */
+"xrf-4V-ue6.placeholder" = "Email";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "yId-AP-naH"; */
+"yId-AP-naH.title" = "Item";
+
+/* Class = "UILabel"; text = "Latitude"; ObjectID = "zcB-vt-qm9"; */
+"zcB-vt-qm9.text" = "Latitude";

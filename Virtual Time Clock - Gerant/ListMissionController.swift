@@ -9,12 +9,14 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import AVFoundation
 
-class ListMissionController: UITableViewController {
+class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
     
     // MARK: Attributs
     let db = Firestore.firestore()
     var missions: [Mission] = []
+    var player: AVAudioPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,16 @@ class ListMissionController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToCreateMission))
+        // On va jouer le son 
+        if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                self.player.delegate = self
+                self.player.play()
+            }
+            catch { print("⛔️ Erreur lors de la lecture du son") }
+        }
     }
     
     @objc func goToCreateMission(){
@@ -122,6 +134,8 @@ class ListMissionController: UITableViewController {
         let mission = missions[indexPath.row]
         
         performSegue(withIdentifier: "goToDetailsMission", sender: mission)
+        
+        
     }
     
 
@@ -136,6 +150,17 @@ class ListMissionController: UITableViewController {
             
             let mission = sender as! Mission
             destination.mission = mission
+            
+            // On va jouer le son
+            if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
+                let fileURL = URL(fileURLWithPath: soundFilePath)
+                do {
+                    try self.player = AVAudioPlayer(contentsOf: fileURL)
+                    self.player.delegate = self
+                    self.player.play()
+                }
+                catch { print("⛔️ Erreur lors de la lecture du son") }
+            }
         }
     }
 }

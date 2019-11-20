@@ -11,9 +11,10 @@ import FirebaseAuth
 import FirebaseFirestore
 import Toast_Swift
 import CoreLocation
+import AVFoundation
 
 
-class AddMissionController: UIViewController, CLLocationManagerDelegate {
+class AddMissionController: UIViewController, CLLocationManagerDelegate, AVAudioPlayerDelegate {
     
     // MARK: Outlet
     
@@ -33,6 +34,8 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate {
     
     private var datePicker: UIDatePicker?
     private var datePicker2: UIDatePicker?
+    
+    var player: AVAudioPlayer!
     
     var latitude: Double = 0
     var longitude: Double = 0
@@ -79,18 +82,8 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate {
         let lat = "\(latitude)"
         let long = "\(longitude)"
         
-        
-        /*
-        let latitudeText: String = String(format: "%.3f %@", latitude, NSLocalizedString("north", comment: "Label"))
-        let longitudeText: String = String(format: "%.3f %@", longitude, NSLocalizedString("north", comment: "Label"))*/
-        
         latitudeTF.text = lat
         longitudeTF.text = long
-        /*
-        doubleLat = NumberFormatter().number(from: latitudeText)!.doubleValue
-        
-        
-        doublelong = NumberFormatter().number(from: longitudeText)!.doubleValue*/
         
         
     }
@@ -194,6 +187,16 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate {
             
         ])
         
+        // On va jouer le son
+        if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                self.player.delegate = self
+                self.player.play()
+            }
+            catch { print("⛔️ Erreur lors de la lecture du son") }
+        }
         
         self.view.makeToast("La mission a été crée")
         

@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import AVFoundation
 
-class LoginController: UIViewController {
+class LoginController: UIViewController, AVAudioPlayerDelegate {
     
     // MARK: Outlet
 
@@ -19,6 +20,10 @@ class LoginController: UIViewController {
     
     @IBOutlet weak var mailTF: UITextField!
     @IBOutlet weak var conectTF: UIButton!
+    
+    //MARK: Attributs
+    
+    var player: AVAudioPlayer!
     
     // MARK: Properties
     override func viewDidLoad() {
@@ -93,6 +98,18 @@ class LoginController: UIViewController {
                                    let isLeader = document.get("isLeader") as! Bool    // Récupération du champ isLeader
                                    if isLeader == true {                              // C'est un gérant
                                        print("✅ C'est un leader, je le redirige vers la liste des missions")
+                                        
+                                    // On va jouer le son de connexion
+                                        if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
+                                            let fileURL = URL(fileURLWithPath: soundFilePath)
+                                            do {
+                                                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                                                self.player.delegate = self
+                                                self.player.play()
+                                            }
+                                            catch { print("⛔️ Erreur lors de la lecture du son") }
+                                        }
+                                    
                                        self.performSegue(withIdentifier: "loginToHome", sender: self)
                                    }
                                    else { // Ce n'est pas un gérant, c'est un employé !
@@ -107,6 +124,16 @@ class LoginController: UIViewController {
                                }
                                else {
                                    print("⛔️ Erreur : Le document demandé pour cet utilisateur n'existe pas !")
+                                    // On va jouer le son
+                                    if let soundFilePath = Bundle.main.path(forResource: "error_sound", ofType: "mp3") {
+                                        let fileURL = URL(fileURLWithPath: soundFilePath)
+                                        do {
+                                            try self.player = AVAudioPlayer(contentsOf: fileURL)
+                                            self.player.delegate = self
+                                            self.player.play()
+                                        }
+                                        catch { print("⛔️ Erreur lors de la lecture du son") }
+                                    }
                                }
                            }
                        }
@@ -114,6 +141,16 @@ class LoginController: UIViewController {
                }
                else { // Les champs ne sont pas remplis
                    print("⛔️ Veuillez remplir les champs !")
+                // On va jouer le son
+                if let soundFilePath = Bundle.main.path(forResource: "error_sound", ofType: "mp3") {
+                    let fileURL = URL(fileURLWithPath: soundFilePath)
+                    do {
+                        try self.player = AVAudioPlayer(contentsOf: fileURL)
+                        self.player.delegate = self
+                        self.player.play()
+                    }
+                    catch { print("⛔️ Erreur lors de la lecture du son") }
+                }
                }
            }
         

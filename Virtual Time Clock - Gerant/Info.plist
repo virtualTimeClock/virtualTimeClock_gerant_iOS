@@ -23,9 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow Camera Please Bitch</string>
+	<string>Allow Camera</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>FUCK YOU BITCH</string>
+	<string>Allow Library</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

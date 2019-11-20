@@ -23,6 +23,9 @@
 		55AAE0582372D68800EDA0B2 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AAE0572372D68800EDA0B2 /* Users.swift */; };
 		55AAE05A2372D9B700EDA0B2 /* ListEmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AAE0592372D9B700EDA0B2 /* ListEmployeesController.swift */; };
 		55AAE05C2372DEA300EDA0B2 /* CellUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AAE05B2372DEA300EDA0B2 /* CellUsers.swift */; };
+		55B95C34238580080021831B /* error_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55B95C31238580070021831B /* error_sound.mp3 */; };
+		55B95C35238580080021831B /* sound_on.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55B95C32238580080021831B /* sound_on.mp3 */; };
+		55B95C36238580080021831B /* sound_off.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55B95C33238580080021831B /* sound_off.mp3 */; };
 		55C15EED236B03EE009201CA /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C15EEC236B03EE009201CA /* HomeController.swift */; };
 		55D0F697236DA3D9002046F0 /* AddMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F696236DA3D9002046F0 /* AddMissionController.swift */; };
 		55D0F699236DAF69002046F0 /* AddEmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F698236DAF69002046F0 /* AddEmployeesController.swift */; };
@@ -49,6 +52,11 @@
 		55AAE0572372D68800EDA0B2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		55AAE0592372D9B700EDA0B2 /* ListEmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEmployeesController.swift; sourceTree = "<group>"; };
 		55AAE05B2372DEA300EDA0B2 /* CellUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellUsers.swift; sourceTree = "<group>"; };
+		55B95C31238580070021831B /* error_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_sound.mp3; sourceTree = "<group>"; };
+		55B95C32238580080021831B /* sound_on.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_on.mp3; sourceTree = "<group>"; };
+		55B95C33238580080021831B /* sound_off.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_off.mp3; sourceTree = "<group>"; };
+		55B95C37238589920021831B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		55B95C38238589920021831B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		55C15EEC236B03EE009201CA /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		55D0F696236DA3D9002046F0 /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
 		55D0F698236DAF69002046F0 /* AddEmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeesController.swift; sourceTree = "<group>"; };
@@ -98,6 +106,7 @@
 		555776B8235DC42C00ACC641 /* Virtual Time Clock - Gerant */ = {
 			isa = PBXGroup;
 			children = (
+				55B95C3023857FE40021831B /* Sounds */,
 				558D8D79236D9AE500E77E35 /* GoogleService-Info.plist */,
 				555776B9235DC42C00ACC641 /* AppDelegate.swift */,
 				555776BB235DC42C00ACC641 /* SceneDelegate.swift */,
@@ -120,6 +129,16 @@
 				55AAE05B2372DEA300EDA0B2 /* CellUsers.swift */,
 			);
 			path = "Virtual Time Clock - Gerant";
+			sourceTree = "<group>";
+		};
+		55B95C3023857FE40021831B /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				55B95C31238580070021831B /* error_sound.mp3 */,
+				55B95C33238580080021831B /* sound_off.mp3 */,
+				55B95C32238580080021831B /* sound_on.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		B79D352747177B5115195C76 /* Frameworks */ = {
@@ -175,6 +194,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 555776AD235DC42C00ACC641;
 			productRefGroup = 555776B7235DC42C00ACC641 /* Products */;
@@ -192,9 +212,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				555776C6235DC42D00ACC641 /* LaunchScreen.storyboard in Resources */,
+				55B95C36238580080021831B /* sound_off.mp3 in Resources */,
 				558D8D7A236D9AE600E77E35 /* GoogleService-Info.plist in Resources */,
 				555776C3235DC42D00ACC641 /* Assets.xcassets in Resources */,
 				555776C1235DC42C00ACC641 /* Main.storyboard in Resources */,
+				55B95C34238580080021831B /* error_sound.mp3 in Resources */,
+				55B95C35238580080021831B /* sound_on.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +312,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				555776C0235DC42C00ACC641 /* Base */,
+				55B95C37238589920021831B /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -297,6 +321,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				555776C5235DC42D00ACC641 /* Base */,
+				55B95C38238589920021831B /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -308,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -368,6 +394,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
