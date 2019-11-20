@@ -26,10 +26,45 @@ class AddMissionController: UIViewController {
     
     // MARK: Attributs
     
+    private var datePicker: UIDatePicker?
+    private var datePicker2: UIDatePicker?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextField()
         
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddMissionController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        
+        
+        dateStartTF.inputView =  datePicker
+        
+        datePicker2 = UIDatePicker()
+        datePicker2?.datePickerMode = .date
+        datePicker2?.addTarget(self, action: #selector(dateChanged2(datePicker2:)), for: .valueChanged)
+        
+        dateEndTF.inputView =  datePicker2
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker : UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        dateStartTF.text = dateFormatter.string(from: datePicker .date)
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged2(datePicker2 : UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        dateEndTF.text = dateFormatter.string(from: datePicker2 .date)
+        view.endEditing(true)
     }
     
     // MARK: Private functions
@@ -80,9 +115,12 @@ class AddMissionController: UIViewController {
         let db = Firestore.firestore()
         let userDoc = db.collection("missions")
         
+        /*
         let dateCourante: Timestamp = Timestamp(date: Date())
-        let dateCourante2: Timestamp = Timestamp(date: Date())
+        let dateCourante2: Timestamp = Timestamp(date: Date())*/
+        let dateCourante: Timestamp = Timestamp(date: datePicker!.date);
         
+        let dateCourante2: Timestamp = Timestamp(date: datePicker2!.date);
         
         
         let getLatText: String = ""+latitudeTF.text!

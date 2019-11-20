@@ -129,14 +129,13 @@ class ListMissionController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // On test si le segue est bien celui qu'on espère
-        if segue.identifier == "goDetailsMission" {
+        if segue.identifier == "goToDetailsMission" {
             
             // Récupération de la destination du segue
             let destination = segue.destination as! MissionDetailController
             
             let mission = sender as! Mission
             destination.mission = mission
-            
         }
     }
 }

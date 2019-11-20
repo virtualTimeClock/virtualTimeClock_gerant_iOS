@@ -25,7 +25,16 @@ class ListEmployeesController: UITableViewController {
             loadUsersFromDB(dataBase: db)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToCreateMission))
+    }
+    
+    @objc func goToCreateMission(){
+        performSegue(withIdentifier: "goToAddEmployees", sender: self)
+    }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
