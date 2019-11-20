@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import Toast_Swift
 
 class AddEmployeesController: UIViewController {
     
@@ -130,6 +131,8 @@ class AddEmployeesController: UIViewController {
         } else {
             print("Un des champs n'est pas rempli correctement")
         }
+        
+        self.view.makeToast("Le compte a été crée")
 
     }
     

@@ -14,8 +14,9 @@ class CellUsers: UITableViewCell {
     
     
     @IBOutlet weak var nom: UILabel!
-    
     @IBOutlet weak var prenom: UILabel!
+    @IBOutlet weak var date: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +33,7 @@ class CellUsers: UITableViewCell {
     func populate(users: Users) {
         nom.text = users.nom
         prenom.text = users.prenom
+        date.text = users.dateNaissance
         
     }
 

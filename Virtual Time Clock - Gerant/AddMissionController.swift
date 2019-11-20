@@ -9,8 +9,11 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import Toast_Swift
+import CoreLocation
 
-class AddMissionController: UIViewController {
+
+class AddMissionController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: Outlet
     
@@ -24,10 +27,17 @@ class AddMissionController: UIViewController {
     @IBOutlet weak var descTF: UITextField!
     @IBOutlet weak var confirmBT: UIButton!
     
+    
+    
     // MARK: Attributs
     
     private var datePicker: UIDatePicker?
     private var datePicker2: UIDatePicker?
+    
+    var latitude: Double = 0
+    var longitude: Double = 0
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +57,45 @@ class AddMissionController: UIViewController {
         datePicker2?.addTarget(self, action: #selector(dateChanged2(datePicker2:)), for: .valueChanged)
         
         dateEndTF.inputView =  datePicker2
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            
+            locationManager.requestAlwaysAuthorization()
+            
+            locationManager.startUpdatingLocation()
+            
+        }
     }
+    
+     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let locValue: CLLocationCoordinate2D = manager.location!.coordinate
+        latitude = Double(locValue.latitude)
+        longitude = Double(locValue.longitude)
+        
+        let lat = "\(latitude)"
+        let long = "\(longitude)"
+        
+        
+        /*
+        let latitudeText: String = String(format: "%.3f %@", latitude, NSLocalizedString("north", comment: "Label"))
+        let longitudeText: String = String(format: "%.3f %@", longitude, NSLocalizedString("north", comment: "Label"))*/
+        
+        latitudeTF.text = lat
+        longitudeTF.text = long
+        /*
+        doubleLat = NumberFormatter().number(from: latitudeText)!.doubleValue
+        
+        
+        doublelong = NumberFormatter().number(from: longitudeText)!.doubleValue*/
+        
+        
+    }
+    
+    
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -69,11 +117,11 @@ class AddMissionController: UIViewController {
     
     // MARK: Private functions
     
+    
+    
     private func setupTextField(){
         //Liaison avec les délégués
         titleTF.delegate = self
-        dateStartTF.delegate = self
-        dateEndTF.delegate = self
         latitudeTF.delegate = self
         longitudeTF.delegate = self
         rayonTF.delegate = self
@@ -100,8 +148,6 @@ class AddMissionController: UIViewController {
     
     @objc private func hideKeyboard(){
         titleTF.resignFirstResponder()
-        dateStartTF.resignFirstResponder()
-        dateEndTF.resignFirstResponder()
         latitudeTF.resignFirstResponder()
         longitudeTF.resignFirstResponder()
         rayonTF.resignFirstResponder()
@@ -115,14 +161,12 @@ class AddMissionController: UIViewController {
         let db = Firestore.firestore()
         let userDoc = db.collection("missions")
         
-        /*
-        let dateCourante: Timestamp = Timestamp(date: Date())
-        let dateCourante2: Timestamp = Timestamp(date: Date())*/
+        
         let dateCourante: Timestamp = Timestamp(date: datePicker!.date);
         
         let dateCourante2: Timestamp = Timestamp(date: datePicker2!.date);
         
-        
+        /*
         let getLatText: String = ""+latitudeTF.text!
         let latConvertDouble = Double(getLatText)
         let lat : Double = Double(latConvertDouble!)
@@ -130,15 +174,14 @@ class AddMissionController: UIViewController {
         let getLongText: String = ""+longitudeTF.text!
         let longConvertDouble = Double(getLongText)
         let long : Double = Double(longConvertDouble!)
+        */
         
+        let getrayon: String = ""+rayonTF.text!
+        let rayonConvertDouble = Double(getrayon)
+        let rayonFinal: Double = Double(rayonConvertDouble!)
         
-        let pos: GeoPoint = GeoPoint(latitude: lat, longitude: long)
+        let pos: GeoPoint = GeoPoint(latitude: latitude, longitude: longitude )
         
-        
-        
-        /*Timestamp().dateValue()*/
-        
-        /*DateFormatter*/
         
         userDoc.document().setData([
             "debut": dateCourante,
@@ -146,14 +189,17 @@ class AddMissionController: UIViewController {
             "fin": dateCourante2,
             "lieu": lieuTF.text ?? "",
             "localisation": pos,
-            "rayon": rayonTF.text ?? "",
+            "rayon": rayonFinal,
             "titre": titleTF.text ?? "",
             
         ])
         
+        
+        self.view.makeToast("La mission a été crée")
+        
+        
     }
     
-
 }
 
 // MARK: Extensions

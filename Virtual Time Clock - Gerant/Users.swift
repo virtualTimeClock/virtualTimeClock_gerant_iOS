@@ -14,13 +14,21 @@ class Users {
     let id: String
     let nom: String
     let prenom: String
-    let dateNaissance: Date
+    let dateNaissance: String
     
     init(id: String, nom: String, prenom: String, dateNaissance: Date) {
         self.id = id
         self.nom = nom
         self.prenom = prenom
-        self.dateNaissance = dateNaissance
+        
+        let dn:Date = dateNaissance
+        let dat = DateFormatter()
+        dat.dateStyle = .short
+        dat.timeStyle = .short
+        let dateB = dat.string(from: dn)
+        
+        
+        self.dateNaissance = dateB
     }
     
     

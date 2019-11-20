@@ -12,6 +12,7 @@ target 'Virtual Time Clock - Gerant' do
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
   pod 'FirebaseUI'
+  pod 'Toast-Swift','~> 5.0.0'
   
 
 end

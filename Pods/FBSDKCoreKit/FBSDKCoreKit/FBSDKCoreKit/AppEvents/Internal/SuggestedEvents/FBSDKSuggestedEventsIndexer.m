@@ -25,6 +25,7 @@
 #import <UIKit/UIKit.h>
 
 #import "FBSDKCoreKit+Internal.h"
+#import "FBSDKEventInferencer.h"
 
 NSString * const OptInEvents = @"production_events";
 NSString * const UnconfirmedEvents = @"eligible_for_prediction_events";
@@ -174,7 +175,7 @@ static NSMutableSet<NSString *> *_unconfirmedEvents;
 
 + (void)predictEvent:(NSObject *)obj withText:(NSString *)text
 {
-  if (text.length > 100 || text.length == 0) {
+  if (text.length > 100 || text.length == 0 || [FBSDKAppEventsUtility isSensitiveUserData: text]) {
     return;
   }
 
@@ -204,6 +205,23 @@ static NSMutableSet<NSString *> *_unconfirmedEvents;
     treeInfo[VIEW_HIERARCHY_SCREEN_NAME_KEY] = screenName ?: @"";
 
     [_viewTrees addObject:treeInfo];
+
+    NSDictionary<NSString *, id> *viewTree = [_viewTrees lastObject];
+
+    fb_dispatch_on_default_thread(^{
+      NSDictionary<NSString *, NSString *> *result = [FBSDKEventInferencer predict:text viewTree:[viewTree mutableCopy] withLog:YES];
+      NSString *event = result[SUGGEST_EVENT_KEY];
+      if (!event || [event isEqualToString:SUGGESTED_EVENTS_OTHER]) {
+        return;
+      }
+      if ([_optInEvents containsObject:event]) {
+        [FBSDKAppEvents logEvent:event
+                      parameters:@{@"_is_suggested_event": @"1"}];
+      } else if ([_unconfirmedEvents containsObject:event]) {
+        // Only send back not confirmed events to advertisers
+        [self logSuggestedEvent:event withText:text withDenseFeature:result[DENSE_FEATURE_KEY] ?: @""];
+      }
+    });
   });
 }
 
@@ -219,6 +237,27 @@ static NSMutableSet<NSString *> *_unconfirmedEvents;
     }
   }
   return [textArray componentsJoinedByString:@" "];
+}
+
++ (void)logSuggestedEvent:(NSString *)event withText:(NSString *)text withDenseFeature:(NSString *)denseFeature
+{
+  NSString *metadata = [FBSDKBasicUtility JSONStringForObject:@{@"button_text": text,
+                                                                @"dense": denseFeature,
+                                                                }
+                                                        error:nil
+                                         invalidObjectHandler:nil];
+  if (!metadata) {
+    return;
+  }
+
+  FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                initWithGraphPath:[NSString stringWithFormat:@"%@/suggested_events", [FBSDKSettings appID]]
+                                parameters: @{@"event_name": event,
+                                              @"metadata": metadata,
+                                              }
+                                HTTPMethod:FBSDKHTTPMethodPOST];
+  [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {}];
+  return;
 }
 
 @end
