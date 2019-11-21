@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import Toast_Swift
 import AVFoundation
+import CoreMotion
 
 class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
     
@@ -27,6 +28,10 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
     
     private var datePicker: UIDatePicker?
     var player: AVAudioPlayer!
+    
+    let motionManager = CMMotionManager()   // Manageur de capteurs
+    var isMovingPhone: Bool = false         // Vrai quand le téléphone est en mouvement
+    var lastTimeCheck:Date?                 // Heure de début du dernier mouvement
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +52,18 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
         
     
     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // On va écouter les mouvements de l'accélétomètre avec les données pré-traitées
+        listenDeviceMovement()
+    }
+    
+    // Appelé quand la vue va disparaître, mais les données sont encore en mémoire.
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        motionManager.stopDeviceMotionUpdates() // On désactive le capteur
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
@@ -80,6 +97,43 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
         //Tap gesture pour fermer le clavier quand on clique dans le vide
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
+    }
+    
+    // Fonction qui utilise l'accéléromètre pour détecter une secousse du téléphone et efface le texte du rapport le téléhpone est secoué pendant plus de 0.5 secondes
+    private func listenDeviceMovement(){
+        // On va utiliser les données pré-traitées de l'accéléromètre
+        if motionManager.isDeviceMotionAvailable {
+            motionManager.deviceMotionUpdateInterval = 0.1 // Interval de prélèvement des valeurs
+            motionManager.startDeviceMotionUpdates(to: .main) { (dm, error) in
+                if let e = error {
+                    print("⛔️ Erreur lors du relevé des valeurs du DeviceMotion : \(e.localizedDescription)")
+                } else {
+                    let accelerationX = dm?.userAcceleration.x  // Accélération sur l'axe X
+                    let accelerationY = dm?.userAcceleration.y  // Accélération sur l'axe Y
+                    let accelerationZ = dm?.userAcceleration.z  // Accélération sur l'axe Z
+                    let now = Date() // Date actuelle
+                    
+                    // Si on détecte une secousse
+                    if abs(accelerationX!) > 0.5 || abs(accelerationY!) > 0.5 || abs(accelerationZ!) > 0.5 {
+                        if !self.isMovingPhone { // Si le téléphone n'est pas en état "moving"
+                            self.lastTimeCheck = now    // On lance le chrono, en sauvegardant l'heure actuelle
+                            self.isMovingPhone = true   // On indique que le téléphone est dans l'état "moving"
+                        } else if now.timeIntervalSince(self.lastTimeCheck!) >= 0.5 {   // Si le téléphone est dans l'état "moving" pendant plus de 0.5 secondes
+                            self.usernameTF.text = ""   // On efface le texte
+                            self.emailTF.text = ""   // On efface le texte
+                            self.nameTF.text = ""   // On efface le texte
+                            self.firstnameTF.text = ""   // On efface le texte
+                            self.bornTF.text = ""   // On efface le texte
+                            
+                            self.isMovingPhone = false      // On indique que le téléphone n'est plus dans l'état "moving"
+                        }
+                    } else {
+                        // Si le téléphone ne bouge plus on indique qu'il n'est plus dans l'état "moving"
+                        self.isMovingPhone = false
+                    }
+                }
+            }
+        }
     }
     
     private func addUserDB(){
