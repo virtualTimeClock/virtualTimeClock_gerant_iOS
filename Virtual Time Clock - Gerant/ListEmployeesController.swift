@@ -42,6 +42,52 @@ class ListEmployeesController: UITableViewController {
 
     
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let complete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [complete])
+        
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
+            
+            let utilisateur = self.users[indexPath.row].id
+            
+            self.users.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            self.db.collection("utilisateurs").document(utilisateur).delete() { err in
+                if let err = err {
+                    print("Error removing users: \(err)")
+                } else {
+                    print("Users successfully remove in DB")
+                }
+                
+                let user = Auth.auth().currentUser;
+                user?.delete { error in
+                  if let error = error {
+                    print("Error removing users: \(error)")
+                  } else {
+                    print("Users successfully remove in Auth")
+                  }
+                }
+                
+            }
+            
+            action.backgroundColor = .red
+            
+            completion(true)
+        }
+        
+        
+        return action
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

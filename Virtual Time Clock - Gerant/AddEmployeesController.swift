@@ -32,7 +32,8 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
     let motionManager = CMMotionManager()   // Manageur de capteurs
     var isMovingPhone: Bool = false         // Vrai quand le téléphone est en mouvement
     var lastTimeCheck:Date?                 // Heure de début du dernier mouvement
-
+    let us = Auth.auth()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -136,7 +137,7 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
-    private func addUserDB(){
+    private func addUserDB(idU: String){
         let db = Firestore.firestore()
         let userDoc = db.collection("utilisateurs")
         
@@ -144,7 +145,7 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
         let finaldate: Timestamp = Timestamp(date: datePicker!.date);
         
         
-        userDoc.document().setData([
+        userDoc.document(idU).setData([
             "dateNaissance": finaldate,
             "isLeader": false,
             "nom": nameTF.text ?? "???",
@@ -170,23 +171,26 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func confirm(_ sender: UIButton) {
         
-        addUserDB()
+        
         
         let len = 8
         let pswdChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
         let rndPswd = String((0..<len).compactMap{ _ in pswdChars.randomElement() })
         
         if usernameTF.text != "" && emailTF.text != "" {
-            Auth.auth().createUser(withEmail: emailTF.text!, password: rndPswd) { (authResult, error) in
+            
+            us.createUser(withEmail: emailTF.text!, password: rndPswd) { (authResult, error) in
                 if error != nil {
                     print(error.debugDescription)
                 } else {
+                    self.addUserDB(idU: self.us.currentUser!.uid)
                     print("Inscription réussie")
-                    Auth.auth().sendPasswordReset(withEmail: self.emailTF.text!) { (error) in
+                    self.us.sendPasswordReset(withEmail: self.emailTF.text!) { (error) in
                         if error != nil {
                             print(error.debugDescription)
                         } else {
                             print("Send a password reset ")
+                            
                         }
                     }
                     
@@ -197,6 +201,13 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
         }
         
         self.view.makeToast("Le compte a été crée")
+        
+        do {
+            try us.signOut()
+            
+        } catch let signOutError as NSError {
+            print ("⛔️ Erreur de déconnexion : \(signOutError)")
+        }
         
         // On va jouer le son
         if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
