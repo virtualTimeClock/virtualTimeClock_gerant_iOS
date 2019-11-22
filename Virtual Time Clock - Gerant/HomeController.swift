@@ -21,13 +21,24 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var lab: UILabel!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var capture: UIButton!
+    @IBOutlet weak var mail: UILabel!
     
     // MARK: Attributs
     
     var player: AVAudioPlayer!
     
+     let buttonIcon = UIImage(named: "ic_logout")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let user = Auth.auth().currentUser {
+            print("✅ Un utilisateur est déjà connecté : \(user.email ?? "")")
+            mail.text = user.email
+            
+        } else {
+            fatalError("ℹ️ Aucun utilisateur n'est connecté.")
+        }
         
         setup()
         
@@ -46,9 +57,22 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         }
         
-        
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.rightBarButtonItem = //UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(logOut))
+            UIBarButtonItem(image: buttonIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(logOut))
+        //self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 216, green: 78, blue:33,  alpha: 1)
+    }
+    
+    @objc func logOut(){
+        //Auth.auth().signOut()
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "goBackLoginHome", sender: self)
+        } catch let signOutError as NSError {
+            print ("⛔️ Erreur de déconnexion : \(signOutError)")
+        }
     }
     
     private func setup(){
@@ -57,6 +81,19 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //let color = UIColor(rgb: 0xD84E21)
         img.layer.borderColor = UIColor.orange.cgColor
         
+    }
+    
+    private func mediaPlayer(son: String) {
+        // On va jouer le son
+        if let soundFilePath = Bundle.main.path(forResource: son, ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                self.player.delegate = self
+                self.player.play()
+            }
+            catch { print("⛔️ Erreur lors de la lecture du son") }
+        }
     }
     
     // MARK: Action
@@ -84,16 +121,8 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
             if UIImagePickerController.isSourceTypeAvailable(.camera){
-                // On va jouer le son
-                if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
-                    let fileURL = URL(fileURLWithPath: soundFilePath)
-                    do {
-                        try self.player = AVAudioPlayer(contentsOf: fileURL)
-                        self.player.delegate = self
-                        self.player.play()
-                    }
-                    catch { print("⛔️ Erreur lors de la lecture du son") }
-                }
+                
+                self.mediaPlayer(son: "sound_on")
                 
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)

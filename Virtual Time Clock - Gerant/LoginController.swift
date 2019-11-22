@@ -32,18 +32,22 @@ class LoginController: UIViewController, AVAudioPlayerDelegate {
         setupButton()
         setupTextField()
         
-        /*
+        // On va tester si un utilisateur est déjà connecté. Si c'est le cas, on le redirige vers la liste des missions.
         if let user = Auth.auth().currentUser {
             print("✅ Un utilisateur est déjà connecté : \(user.email ?? "")")
-            performSegue(withIdentifier: "loginToHome", sender: self)
-            
+            perform(#selector(loginagain), with: nil, afterDelay: 0)
+            // Ici, on utilise un sélector pour s'assurer que la vue vers laquelle on veut rediriger l'utilisateur soit belle et bien chargée.
         } else {
             print("ℹ️ Aucun utilisateur n'est connecté.")
-        }*/
-        
-        
+        }
         
     }
+    
+    @objc private func loginagain() {
+        self.performSegue(withIdentifier: "loginToHome", sender: self)
+    }
+    
+    
     
     // MARK: Private functions
     

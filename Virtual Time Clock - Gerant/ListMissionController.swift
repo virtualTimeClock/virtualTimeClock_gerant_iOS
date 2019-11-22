@@ -17,9 +17,16 @@ class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
     let db = Firestore.firestore()
     var missions: [Mission] = []
     var player: AVAudioPlayer!
+    let deleteIcon = UIImage(named: "ic_delete")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         // Si aucun utilisateur est connecté, on crash l'application
         if Auth.auth().currentUser == nil {
@@ -28,9 +35,7 @@ class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
             loadMissionsFromDB(dataBase: db)
         }
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToCreateMission))
         // On va jouer le son 
         if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
@@ -49,7 +54,45 @@ class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
     }
 
     // MARK: - Table view data source
-
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let complete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [complete])
+        
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
+            
+            let mission = self.missions[indexPath.row].id
+            
+            self.missions.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            self.db.collection("missions").document(mission).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully remove")
+                }
+            }
+            
+            action.image = self.deleteIcon
+            action.backgroundColor = .red
+            
+            completion(true)
+        }
+        
+        
+        return action
+    }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -64,12 +107,16 @@ class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
     
     private func loadMissionsFromDB(dataBase: Firestore){
         // Lecture des documents dans la collection "missions"
+        self.missions = []
+        
         dataBase.collection("missions").getDocuments() { (query, err) in
             if let err = err {
                 print("⛔️ Erreur : Impossible d'obtenir les missions ! \(err)")
             } else {
                 print("✅ Document récupéré !")
                 for document in query!.documents {
+                    
+                    
                     
                     // Pour chaque document, on crée une mission et on l'ajoute à la liste
                     
@@ -114,6 +161,7 @@ class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
         
         // Récupération de la mission courante dans la liste
         let mission = missions[indexPath.row]
+        print("Test dedans Table view \(self.missions[indexPath.row].id)")
         
         // On rempli les différents champs de notre cellule avec la mission courante
         cell.populate(mission: mission)

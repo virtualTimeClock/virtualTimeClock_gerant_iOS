@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HJs-wB-Xxl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -102,12 +102,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entreprise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QA4-yh-ZnV">
-                                <rect key="frame" x="148.5" y="121" width="78" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="75247383_435788737138108_6114700769871527936_n" translatesAutoresizingMaskIntoConstraints="NO" id="Cm4-dh-VUV">
                                 <rect key="frame" x="67" y="190" width="240" height="240"/>
                                 <constraints>
@@ -129,14 +123,36 @@
                                     <action selector="captureAndSave:" destination="d7N-rM-kxY" eventType="touchUpInside" id="90N-xF-nar"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPI-dT-Nkz">
+                                <rect key="frame" x="50" y="138" width="275" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="31F-pi-2nd"/>
+                                    <constraint firstAttribute="width" constant="275" id="PUA-Pm-8rw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entreprise :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QA4-yh-ZnV">
+                                <rect key="frame" x="136" y="84" width="102" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="92p-SH-xOg"/>
+                                    <constraint firstAttribute="height" constant="21" id="Edp-CL-WVR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="12X-Qm-j1c" firstAttribute="trailing" secondItem="QA4-yh-ZnV" secondAttribute="trailing" constant="137" id="0kb-aP-jCz"/>
                             <constraint firstItem="Cm4-dh-VUV" firstAttribute="leading" secondItem="12X-Qm-j1c" secondAttribute="leading" constant="67" id="5tr-LU-UOG"/>
-                            <constraint firstItem="Cm4-dh-VUV" firstAttribute="top" secondItem="QA4-yh-ZnV" secondAttribute="bottom" constant="48" id="Kd1-eT-7bs"/>
+                            <constraint firstItem="DPI-dT-Nkz" firstAttribute="top" secondItem="QA4-yh-ZnV" secondAttribute="bottom" constant="33" id="G6W-C1-xxa"/>
+                            <constraint firstItem="QA4-yh-ZnV" firstAttribute="top" secondItem="12X-Qm-j1c" secondAttribute="top" constant="40" id="OJd-J4-cuh"/>
+                            <constraint firstItem="Cm4-dh-VUV" firstAttribute="top" secondItem="DPI-dT-Nkz" secondAttribute="bottom" constant="34" id="VCI-4e-Y9a"/>
                             <constraint firstItem="12X-Qm-j1c" firstAttribute="trailing" secondItem="7V0-9M-zLv" secondAttribute="trailing" constant="68" id="Y5v-aE-drb"/>
-                            <constraint firstItem="QA4-yh-ZnV" firstAttribute="centerX" secondItem="ajh-Jb-VV0" secondAttribute="centerX" id="gFT-Nq-E04"/>
-                            <constraint firstItem="QA4-yh-ZnV" firstAttribute="top" secondItem="12X-Qm-j1c" secondAttribute="top" constant="77" id="gXt-or-yPk"/>
+                            <constraint firstItem="DPI-dT-Nkz" firstAttribute="leading" secondItem="12X-Qm-j1c" secondAttribute="leading" constant="50" id="dWW-w0-4j1"/>
                             <constraint firstItem="12X-Qm-j1c" firstAttribute="bottom" secondItem="7V0-9M-zLv" secondAttribute="bottom" constant="85" id="pY2-nw-vGL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="12X-Qm-j1c"/>
@@ -154,17 +170,19 @@
                         <outlet property="capture" destination="7V0-9M-zLv" id="aVA-H0-RCu"/>
                         <outlet property="img" destination="Cm4-dh-VUV" id="3N9-pt-pqR"/>
                         <outlet property="lab" destination="QA4-yh-ZnV" id="AzC-Vq-kdJ"/>
+                        <outlet property="mail" destination="DPI-dT-Nkz" id="6pS-Ts-ix8"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="goBackLoginHome" modalPresentationStyle="fullScreen" id="tWk-SX-Fu4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfG-G7-j1E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="542" y="782"/>
+            <point key="canvasLocation" x="541.60000000000002" y="781.25937031484261"/>
         </scene>
         <!--Mission-->
         <scene sceneID="RM3-iA-ZeN">
             <objects>
                 <tableViewController id="OQL-tO-R1f" customClass="ListMissionController" customModule="Virtual_Time_Clock___Gerant" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fHb-Df-J02" customClass="ListMission">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fHb-Df-J02">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -209,8 +227,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="OQL-tO-R1f" id="MgX-bL-Rpk"/>
-                            <outlet property="delegate" destination="OQL-tO-R1f" id="ebC-3s-wfy"/>
+                            <outlet property="dataSource" destination="OQL-tO-R1f" id="Cey-fq-MwY"/>
+                            <outlet property="delegate" destination="OQL-tO-R1f" id="c7b-iK-P98"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Mission" image="ic_mission" selectedImage="ic_mission_selected" id="BbT-JP-f4S"/>
@@ -577,13 +595,7 @@
         <scene sceneID="bTw-sq-REk">
             <objects>
                 <tabBarController id="i7G-jQ-qee" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="N68-QT-e5v">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="ic_logout" id="MSV-Gi-P5F">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="4Pb-k1-se6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="N68-QT-e5v"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pUl-5c-KMK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -720,7 +732,6 @@
         <image name="75247383_435788737138108_6114700769871527936_n" width="72" height="72"/>
         <image name="ic_employee" width="36" height="36"/>
         <image name="ic_employee_selected" width="36" height="36"/>
-        <image name="ic_logout" width="36" height="36"/>
         <image name="ic_mission" width="36" height="36"/>
         <image name="ic_mission_selected" width="36" height="36"/>
         <image name="ic_photo" width="36" height="36"/>

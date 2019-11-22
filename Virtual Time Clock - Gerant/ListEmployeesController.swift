@@ -19,15 +19,21 @@ class ListEmployeesController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         if Auth.auth().currentUser == nil {
             fatalError("⛔️ Aucun utilisateur n'est connecté !")
         } else { // Sinon, on affiche les missions
             loadUsersFromDB(dataBase: db)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
+        
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToCreateMission))
+        
+        
     }
     
     @objc func goToCreateMission(){
@@ -50,6 +56,8 @@ class ListEmployeesController: UITableViewController {
     // MARK: Private functions
     
     private func loadUsersFromDB(dataBase: Firestore){
+        
+        self.users = []
         
         dataBase.collection("utilisateurs").getDocuments() { (query, err) in
             if let err = err {

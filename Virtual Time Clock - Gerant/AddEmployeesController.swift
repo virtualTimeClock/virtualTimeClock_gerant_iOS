@@ -182,6 +182,14 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
                     print(error.debugDescription)
                 } else {
                     print("Inscription réussie")
+                    Auth.auth().sendPasswordReset(withEmail: self.emailTF.text!) { (error) in
+                        if error != nil {
+                            print(error.debugDescription)
+                        } else {
+                            print("Send a password reset ")
+                        }
+                    }
+                    
                 }
             }
         } else {

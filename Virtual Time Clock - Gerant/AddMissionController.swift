@@ -96,6 +96,7 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate, AVAudio
         latitude = Double(locValue.latitude)
         longitude = Double(locValue.longitude)
         
+        
         let lat = "\(latitude)"
         let long = "\(longitude)"
         
@@ -214,16 +215,6 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate, AVAudio
         let dateCourante: Timestamp = Timestamp(date: datePicker!.date);
         
         let dateCourante2: Timestamp = Timestamp(date: datePicker2!.date);
-        
-        /*
-        let getLatText: String = ""+latitudeTF.text!
-        let latConvertDouble = Double(getLatText)
-        let lat : Double = Double(latConvertDouble!)
-        
-        let getLongText: String = ""+longitudeTF.text!
-        let longConvertDouble = Double(getLongText)
-        let long : Double = Double(longConvertDouble!)
-        */
         
         let getrayon: String = ""+rayonTF.text!
         let rayonConvertDouble = Double(getrayon)
