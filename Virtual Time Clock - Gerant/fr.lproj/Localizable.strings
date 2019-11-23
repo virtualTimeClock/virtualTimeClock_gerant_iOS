@@ -1,0 +1,67 @@
+/* 
+  Localizable.strings
+  Virtual Time Clock - Gerant
+
+  Created by Guillaume Nirlo on 11/23/19.
+  Copyright © 2019 Guillaume Nirlo. All rights reserved.
+*/
+
+
+/* Ecran connexion */
+"emailPlaceholder" = "Email";
+"passwordPlaceholder" = "Mot de passe";
+"loginButton" = "Connexion";
+
+/* Profil */
+"Entreprise" = "Entreprise";
+"CaptureAndUpload" = "Prendre une photo et envoyer";
+
+/* Ajouter des Employées */
+"username" = "Identifiant";
+"email" = "Email";
+"name" = "Nom";
+"firstname" = "Prénom";
+"birthday" = "Date de Naissance";
+"toConfirm" = "Confirmer";
+
+/* Ajouter des Missions */
+"Title" = "Titre";
+"dateStart" = "Date de début";
+"dateEnd" = "Date de fin";
+"latitude" = "Latitude";
+"longitude" = "Longitude";
+"rayon" = "Rayon";
+"lieu" = "Lieu";
+"description" = "Description";
+
+/* Détails des Missions */
+"missionDetails" = "Mission détaillée";
+"empButton" = "Employées dans cette mission";
+"titre" = "Titre";
+"debut" = "Début";
+"fin" = "Fin";
+"lieu" = "Lieu";
+"latitude" = "Latitude";
+"longitude" = "Longitude";
+"rayon" = "Rayon";
+"desc" = "Description";
+
+/* Employées dans une mission */
+"employeesMission" = "Liste employées dans cette mission";
+"refresh" = "Actualiser";
+
+/* Camera */
+"source" = "Photo de profil";
+"choose" = "Veuillez sélectionner une source";
+"camera" = "Appareil Photo";
+"library" = "Photothèque";
+"cancel" = "Annuler";
+
+/* Toast */
+"succesEmp" = "Le compte a été crée";
+"succesMission" = "La mission a été crée";
+"champ" = "Un des champs n'est pas rempli correctement";
+"connect" = "Connection réussie";
+"errorCo" = "Erreur de connexion";
+"deco" = "Déconnexion réussie";
+

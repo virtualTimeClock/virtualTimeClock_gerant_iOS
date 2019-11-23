@@ -34,6 +34,8 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
     var lastTimeCheck:Date?                 // Heure de début du dernier mouvement
     let us = Auth.auth()
     
+    // MARK: Cycle de vie
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,10 +50,7 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
         
         
         bornTF.inputView =  datePicker
-        
-        
-        
-    
+
     
     }
     
@@ -80,6 +79,19 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
     
     // MARK: Private functions
     
+    private func mediaPlayer(son: String) {
+        // On va jouer le son
+        if let soundFilePath = Bundle.main.path(forResource: son, ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                self.player.delegate = self
+                self.player.play()
+            }
+            catch { print("⛔️ Erreur lors de la lecture du son") }
+        }
+    }
+    
     private func setupTextField(){
         //Liaison avec les délégués
         usernameTF.delegate = self
@@ -89,11 +101,11 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
         bornTF.delegate = self
         
         // Personnalisation des placeholders
-            usernameTF.attributedPlaceholder = NSAttributedString(string:"Username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            emailTF.attributedPlaceholder = NSAttributedString(string:"Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            nameTF.attributedPlaceholder = NSAttributedString(string:"Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            firstnameTF.attributedPlaceholder = NSAttributedString(string:"FirstName", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            bornTF.attributedPlaceholder = NSAttributedString(string:"Birthday", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            usernameTF.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("username", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            emailTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("email", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            nameTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("name", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            firstnameTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("firstname", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            bornTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("birthday", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         //Tap gesture pour fermer le clavier quand on clique dans le vide
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -171,9 +183,7 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func confirm(_ sender: UIButton) {
         
-        
-        
-        let len = 8
+        let len = 8 //taille du mot de passe
         let pswdChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
         let rndPswd = String((0..<len).compactMap{ _ in pswdChars.randomElement() })
         
@@ -197,10 +207,10 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
                 }
             }
         } else {
-            print("Un des champs n'est pas rempli correctement")
+            self.view.makeToast(NSLocalizedString("champ", comment: "Labels"))
         }
         
-        self.view.makeToast("Le compte a été crée")
+        self.view.makeToast(NSLocalizedString("succesEmp", comment: "Labels"))
         
         do {
             try us.signOut()
@@ -209,23 +219,10 @@ class AddEmployeesController: UIViewController, AVAudioPlayerDelegate {
             print ("⛔️ Erreur de déconnexion : \(signOutError)")
         }
         
-        // On va jouer le son
-        if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
-            let fileURL = URL(fileURLWithPath: soundFilePath)
-            do {
-                try self.player = AVAudioPlayer(contentsOf: fileURL)
-                self.player.delegate = self
-                self.player.play()
-            }
-            catch { print("⛔️ Erreur lors de la lecture du son") }
-        }
+        mediaPlayer(son: "sound_on")
 
     }
     
-    
-    
-    
-
 }
 
 // MARK: Extensions

@@ -1,0 +1,66 @@
+/* 
+  Localizable.strings
+  Virtual Time Clock - Gerant
+
+  Created by Guillaume Nirlo on 11/23/19.
+  Copyright © 2019 Guillaume Nirlo. All rights reserved.
+*/
+
+
+/* Login */
+"emailPlaceholder" = "Email";
+"passwordPlaceholder" = "Password";
+"loginButton" = "Log in";
+
+/* Profil */
+"Entreprise" = "Entreprise";
+"CaptureAndUpload" = "Capture and Upload";
+
+/* Ajouter des Employées */
+"username" = "Username";
+"email" = "Email";
+"name" = "Name";
+"firstname" = "Firstname";
+"birthday" = "Birthday";
+"toConfirm" = "To Confirm";
+
+/* Ajouter des Missions */
+"Title" = "Title";
+"dateStart" = "Date Start";
+"dateEnd" = "Date End";
+"latitude" = "Latitude";
+"longitude" = "Longitude";
+"rayon" = "Radius";
+"lieu" = "Place";
+"description" = "Description";
+
+/* Détails des Missions */
+"missionDetails" = "Mission details";
+"empButton" = "Employées in this mission";
+"titre" = "Title";
+"debut" = "Start";
+"fin" = "End";
+"lieu" = "Place";
+"latitude" = "Latitude";
+"longitude" = "Longitude";
+"rayon" = "Radius";
+"desc" = "Description";
+
+/* Employées dans une mission */
+"employeesMission" = "List employées in this mission";
+"refresh" = "Refresh";
+
+/* Camera */
+"source" = "Photo Source";
+"choose" = "Choose a source";
+"camera" = "Camera";
+"library" = "Photo Library";
+"cancel" = "Cancel";
+
+/* Toast */
+"succesEmp" = "The account was created";
+"succesMission" = "The mission was created";
+"champ" = "One of the fields is not filled correctly";
+"connect" = "Successful connection";
+"errorCo" = "Connexion error";
+"deco" = "Successful log out";

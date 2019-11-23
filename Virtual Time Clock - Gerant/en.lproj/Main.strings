@@ -6,16 +6,16 @@
 "4H1-kS-3tl.text" = "prenom";
 
 /* Class = "UIButton"; normalTitle = " Capture and Upload"; ObjectID = "7V0-9M-zLv"; */
-"7V0-9M-zLv.normalTitle" = " Prendre une photo et envoyer";
+"7V0-9M-zLv.normalTitle" = " Capture and Upload";
 
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "7ha-De-Tni"; */
 "7ha-De-Tni.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
 /* Class = "UIButton"; normalTitle = "Employees in this mission"; ObjectID = "8D3-F5-QnU"; */
-"8D3-F5-QnU.normalTitle" = "Liste employées";
+"8D3-F5-QnU.normalTitle" = "Employees in this mission";
 
 /* Class = "UITabBarItem"; title = "Employees"; ObjectID = "8eq-Id-Ix1"; */
-"8eq-Id-Ix1.title" = "Employées";
+"8eq-Id-Ix1.title" = "Employees";
 
 /* Class = "UILabel"; text = "lieu"; ObjectID = "93w-xL-b35"; */
 "93w-xL-b35.text" = "lieu";
@@ -33,7 +33,7 @@
 "DbI-NG-KGe.text" = "longitudejcnzczzcz";
 
 /* Class = "UIButton"; normalTitle = "To confirm"; ObjectID = "EDS-rM-VMW"; */
-"EDS-rM-VMW.normalTitle" = "Confirmer";
+"EDS-rM-VMW.normalTitle" = "To confirm";
 
 /* Class = "UILabel"; text = "Fin"; ObjectID = "FBB-bq-prl"; */
 "FBB-bq-prl.text" = "Fin";
@@ -57,10 +57,10 @@
 "Jn7-mj-X7G.text" = "Description";
 
 /* Class = "UIButton"; normalTitle = "Refresh"; ObjectID = "KWM-m8-tZU"; */
-"KWM-m8-tZU.normalTitle" = "Actualiser";
+"KWM-m8-tZU.normalTitle" = "Refresh";
 
 /* Class = "UIButton"; normalTitle = "To confirm"; ObjectID = "NOA-vK-gcZ"; */
-"NOA-vK-gcZ.normalTitle" = "Confirmer";
+"NOA-vK-gcZ.normalTitle" = "To confirm";
 
 /* Class = "UILabel"; text = "Rayon"; ObjectID = "PJI-yg-ygK"; */
 "PJI-yg-ygK.text" = "Rayon";
@@ -75,7 +75,7 @@
 "QA4-yh-ZnV.text" = "Entreprise :";
 
 /* Class = "UITabBarItem"; title = "Profile"; ObjectID = "QU9-D1-Ykx"; */
-"QU9-D1-Ykx.title" = "Profil";
+"QU9-D1-Ykx.title" = "Profile";
 
 /* Class = "UILabel"; text = "date"; ObjectID = "Qcb-uR-kRd"; */
 "Qcb-uR-kRd.text" = "date";
@@ -108,7 +108,7 @@
 "fDV-Qr-Sff.placeholder" = "Rayon";
 
 /* Class = "UILabel"; text = "Mission détaillée"; ObjectID = "hAO-RF-wfj"; */
-"hAO-RF-wfj.text" = "Mission détaillée";
+"hAO-RF-wfj.text" = "Mission details";
 
 /* Class = "UITextField"; placeholder = "Name"; ObjectID = "hKz-bF-e2h"; */
 "hKz-bF-e2h.placeholder" = "Name";
@@ -117,7 +117,7 @@
 "ji0-aQ-Wex.placeholder" = "Latitude";
 
 /* Class = "UIButton"; normalTitle = "Connexion"; ObjectID = "lh0-IW-GIH"; */
-"lh0-IW-GIH.normalTitle" = "Connexion";
+"lh0-IW-GIH.normalTitle" = "Log in";
 
 /* Class = "UILabel"; text = "rayon"; ObjectID = "mOK-Sj-7Jk"; */
 "mOK-Sj-7Jk.text" = "rayon";

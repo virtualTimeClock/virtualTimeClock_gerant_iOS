@@ -47,6 +47,8 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate, AVAudio
     var isMovingPhone: Bool = false         // Vrai quand le téléphone est en mouvement
     var lastTimeCheck:Date?                 // Heure de début du dernier mouvement
     
+    // MARK: Cycle de vie
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextField()
@@ -95,14 +97,10 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate, AVAudio
         let locValue: CLLocationCoordinate2D = manager.location!.coordinate
         latitude = Double(locValue.latitude)
         longitude = Double(locValue.longitude)
-        
-        
         let lat = "\(latitude)"
         let long = "\(longitude)"
-        
         latitudeTF.text = lat
         longitudeTF.text = long
-        
         
     }
     
@@ -128,7 +126,18 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate, AVAudio
     
     // MARK: Private functions
     
-    
+    private func mediaPlayer(son: String) {
+        // On va jouer le son
+        if let soundFilePath = Bundle.main.path(forResource: son, ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                self.player.delegate = self
+                self.player.play()
+            }
+            catch { print("⛔️ Erreur lors de la lecture du son") }
+        }
+    }
     
     private func setupTextField(){
         //Liaison avec les délégués
@@ -140,14 +149,14 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate, AVAudio
         descTF.delegate = self
         
         // Personnalisation des placeholders
-            titleTF.attributedPlaceholder = NSAttributedString(string:"Title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            dateStartTF.attributedPlaceholder = NSAttributedString(string:"Date start", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            dateEndTF.attributedPlaceholder = NSAttributedString(string:"Date end", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            latitudeTF.attributedPlaceholder = NSAttributedString(string:"Latitude", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            longitudeTF.attributedPlaceholder = NSAttributedString(string:"Longitude", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            rayonTF.attributedPlaceholder = NSAttributedString(string:"Rayon", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            lieuTF.attributedPlaceholder = NSAttributedString(string:"Lieu", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            descTF.attributedPlaceholder = NSAttributedString(string:"Description", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            titleTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("Title", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            dateStartTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("dateStart", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            dateEndTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("dateEnd", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            latitudeTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("latitude", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            longitudeTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("longitude", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            rayonTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("rayon", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            lieuTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("lieu", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            descTF.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("description", comment: "Labels"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         //Tap gesture pour fermer le clavier quand on clique dans le vide
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -210,18 +219,12 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate, AVAudio
         
         let db = Firestore.firestore()
         let userDoc = db.collection("missions")
-        
-        
         let dateCourante: Timestamp = Timestamp(date: datePicker!.date);
-        
         let dateCourante2: Timestamp = Timestamp(date: datePicker2!.date);
-        
         let getrayon: String = ""+rayonTF.text!
         let rayonConvertDouble = Double(getrayon)
         let rayonFinal: Double = Double(rayonConvertDouble!)
-        
         let pos: GeoPoint = GeoPoint(latitude: latitude, longitude: longitude )
-        
         
         userDoc.document().setData([
             "debut": dateCourante,
@@ -231,22 +234,11 @@ class AddMissionController: UIViewController, CLLocationManagerDelegate, AVAudio
             "localisation": pos,
             "rayon": rayonFinal,
             "titre": titleTF.text ?? "",
-            
         ])
         
-        // On va jouer le son
-        if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
-            let fileURL = URL(fileURLWithPath: soundFilePath)
-            do {
-                try self.player = AVAudioPlayer(contentsOf: fileURL)
-                self.player.delegate = self
-                self.player.play()
-            }
-            catch { print("⛔️ Erreur lors de la lecture du son") }
-        }
+        mediaPlayer(son: "sound_on")
         
-        self.view.makeToast("La mission a été crée")
-        
+        self.view.makeToast(NSLocalizedString("succesMission", comment: "Labels"))
         
     }
     

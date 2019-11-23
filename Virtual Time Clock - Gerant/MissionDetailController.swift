@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 
-class MissionDetailController: UIViewController {
+class MissionDetailController: UIViewController, AVAudioPlayerDelegate {
     
     
     //MARK: Outlets
@@ -24,19 +25,42 @@ class MissionDetailController: UIViewController {
     @IBOutlet weak var descLB: UILabel!
     @IBOutlet weak var rayonLB: UILabel!
     
+    
+   
     @IBOutlet weak var titre: UILabel!
     @IBOutlet weak var deb: UILabel!
     @IBOutlet weak var fin: UILabel!
     @IBOutlet weak var lieu: UILabel!
     @IBOutlet weak var lat: UILabel!
     @IBOutlet weak var long: UILabel!
-    @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var rayon: UILabel!
+    @IBOutlet weak var desc: UITextView!
+    
+    
+    @IBOutlet weak var buttonMission: UIButton!
+    
+    var player: AVAudioPlayer!
     
     var mission: Mission? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Auth.auth().currentUser == nil {
+            fatalError("⛔️ Aucun utilisateur n'est connecté !")
+        }
+        
+        setupButton()
+        
+        //Affichage
+        titreLB.text = NSLocalizedString("titre", comment: "Labels")
+        debLB.text = NSLocalizedString("debut", comment: "Labels")
+        finLB.text = NSLocalizedString("fin", comment: "Labels")
+        lieuLB.text = NSLocalizedString("lieu", comment: "Labels")
+        latLB.text = NSLocalizedString("latitude", comment: "Labels")
+        longLB.text = NSLocalizedString("longitude", comment: "Labels")
+        rayonLB.text = NSLocalizedString("rayon", comment: "Labels")
+        descLB.text = NSLocalizedString("desc", comment: "Labels")
         
         // Recuperation des strings
         titre.text = mission?.titre
@@ -76,6 +100,43 @@ class MissionDetailController: UIViewController {
         rayon.text = ray
         
         
+    }
+     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToPointEmp" {
+            let destination = segue.destination as! ListPointEmpController
+            destination.missionID = mission!.id
+        }
+    }
+    
+    // MARK: Private functions
+    
+    private func setupButton(){
+        buttonMission.layer.cornerRadius = 16
+        
+    }
+    
+    private func mediaPlayer(son: String) {
+        // On va jouer le son
+        if let soundFilePath = Bundle.main.path(forResource: son, ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                self.player.delegate = self
+                self.player.play()
+            }
+            catch { print("⛔️ Erreur lors de la lecture du son") }
+        }
+    }
+
+    
+    //MARK: Actions
+    
+    
+    @IBAction func PointageEmp(_ sender: Any) {
+        
+        mediaPlayer(son: "sound_on")
+        performSegue(withIdentifier: "goToPointEmp", sender: self)
     }
     
 

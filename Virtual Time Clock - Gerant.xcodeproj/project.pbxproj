@@ -13,6 +13,9 @@
 		555776C1235DC42C00ACC641 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555776BF235DC42C00ACC641 /* Main.storyboard */; };
 		555776C3235DC42D00ACC641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555776C2235DC42D00ACC641 /* Assets.xcassets */; };
 		555776C6235DC42D00ACC641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555776C4235DC42D00ACC641 /* LaunchScreen.storyboard */; };
+		5583449C2388000300D466C3 /* ListPointEmpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583449B2388000300D466C3 /* ListPointEmpController.swift */; };
+		558344A02388035900D466C3 /* CellPointEmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583449F2388035900D466C3 /* CellPointEmp.swift */; };
+		558344A22388196900D466C3 /* PointEmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558344A12388196900D466C3 /* PointEmp.swift */; };
 		558D8D7A236D9AE600E77E35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 558D8D79236D9AE500E77E35 /* GoogleService-Info.plist */; };
 		5598FDE823703CCB006D2D5E /* ListMissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598FDE723703CCB006D2D5E /* ListMissionController.swift */; };
 		5598FDEA23703D5A006D2D5E /* CellMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5598FDE923703D5A006D2D5E /* CellMission.swift */; };
@@ -23,6 +26,7 @@
 		55AAE0582372D68800EDA0B2 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AAE0572372D68800EDA0B2 /* Users.swift */; };
 		55AAE05A2372D9B700EDA0B2 /* ListEmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AAE0592372D9B700EDA0B2 /* ListEmployeesController.swift */; };
 		55AAE05C2372DEA300EDA0B2 /* CellUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AAE05B2372DEA300EDA0B2 /* CellUsers.swift */; };
+		55B94A732389669E006C2E94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55B94A752389669E006C2E94 /* Localizable.strings */; };
 		55B95C34238580080021831B /* error_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55B95C31238580070021831B /* error_sound.mp3 */; };
 		55B95C35238580080021831B /* sound_on.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55B95C32238580080021831B /* sound_on.mp3 */; };
 		55B95C36238580080021831B /* sound_off.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55B95C33238580080021831B /* sound_off.mp3 */; };
@@ -42,6 +46,9 @@
 		555776C2235DC42D00ACC641 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		555776C5235DC42D00ACC641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		555776C7235DC42D00ACC641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5583449B2388000300D466C3 /* ListPointEmpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPointEmpController.swift; sourceTree = "<group>"; };
+		5583449F2388035900D466C3 /* CellPointEmp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPointEmp.swift; sourceTree = "<group>"; };
+		558344A12388196900D466C3 /* PointEmp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointEmp.swift; sourceTree = "<group>"; };
 		558D8D79236D9AE500E77E35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5598FDE723703CCB006D2D5E /* ListMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMissionController.swift; sourceTree = "<group>"; };
 		5598FDE923703D5A006D2D5E /* CellMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMission.swift; sourceTree = "<group>"; };
@@ -52,11 +59,14 @@
 		55AAE0572372D68800EDA0B2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		55AAE0592372D9B700EDA0B2 /* ListEmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEmployeesController.swift; sourceTree = "<group>"; };
 		55AAE05B2372DEA300EDA0B2 /* CellUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellUsers.swift; sourceTree = "<group>"; };
+		55B94A71238958D3006C2E94 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		55B94A72238958D4006C2E94 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		55B94A742389669E006C2E94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		55B94A76238966B9006C2E94 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		55B94A7823896766006C2E94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		55B95C31238580070021831B /* error_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error_sound.mp3; sourceTree = "<group>"; };
 		55B95C32238580080021831B /* sound_on.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_on.mp3; sourceTree = "<group>"; };
 		55B95C33238580080021831B /* sound_off.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_off.mp3; sourceTree = "<group>"; };
-		55B95C37238589920021831B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		55B95C38238589920021831B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		55C15EEC236B03EE009201CA /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		55D0F696236DA3D9002046F0 /* AddMissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMissionController.swift; sourceTree = "<group>"; };
 		55D0F698236DAF69002046F0 /* AddEmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeesController.swift; sourceTree = "<group>"; };
@@ -127,6 +137,10 @@
 				55AAE0572372D68800EDA0B2 /* Users.swift */,
 				55AAE0592372D9B700EDA0B2 /* ListEmployeesController.swift */,
 				55AAE05B2372DEA300EDA0B2 /* CellUsers.swift */,
+				5583449B2388000300D466C3 /* ListPointEmpController.swift */,
+				5583449F2388035900D466C3 /* CellPointEmp.swift */,
+				558344A12388196900D466C3 /* PointEmp.swift */,
+				55B94A752389669E006C2E94 /* Localizable.strings */,
 			);
 			path = "Virtual Time Clock - Gerant";
 			sourceTree = "<group>";
@@ -216,6 +230,7 @@
 				558D8D7A236D9AE600E77E35 /* GoogleService-Info.plist in Resources */,
 				555776C3235DC42D00ACC641 /* Assets.xcassets in Resources */,
 				555776C1235DC42C00ACC641 /* Main.storyboard in Resources */,
+				55B94A732389669E006C2E94 /* Localizable.strings in Resources */,
 				55B95C34238580080021831B /* error_sound.mp3 in Resources */,
 				55B95C35238580080021831B /* sound_on.mp3 in Resources */,
 			);
@@ -290,6 +305,7 @@
 				5598FDF223704DA3006D2D5E /* TableViewCell.swift in Sources */,
 				5598FDEC237042D8006D2D5E /* Mission.swift in Sources */,
 				5598FDEA23703D5A006D2D5E /* CellMission.swift in Sources */,
+				5583449C2388000300D466C3 /* ListPointEmpController.swift in Sources */,
 				555776BE235DC42C00ACC641 /* LoginController.swift in Sources */,
 				55C15EED236B03EE009201CA /* HomeController.swift in Sources */,
 				555776BA235DC42C00ACC641 /* AppDelegate.swift in Sources */,
@@ -297,6 +313,8 @@
 				5598FDE823703CCB006D2D5E /* ListMissionController.swift in Sources */,
 				5598FDF023704D3B006D2D5E /* TableViewController.swift in Sources */,
 				55D0F699236DAF69002046F0 /* AddEmployeesController.swift in Sources */,
+				558344A22388196900D466C3 /* PointEmp.swift in Sources */,
+				558344A02388035900D466C3 /* CellPointEmp.swift in Sources */,
 				5598FDF423705760006D2D5E /* MissionDetailController.swift in Sources */,
 				55AAE05C2372DEA300EDA0B2 /* CellUsers.swift in Sources */,
 				555776BC235DC42C00ACC641 /* SceneDelegate.swift in Sources */,
@@ -312,7 +330,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				555776C0235DC42C00ACC641 /* Base */,
-				55B95C37238589920021831B /* fr */,
+				55B94A71238958D3006C2E94 /* fr */,
+				55B94A7823896766006C2E94 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -321,9 +340,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				555776C5235DC42D00ACC641 /* Base */,
-				55B95C38238589920021831B /* fr */,
+				55B94A72238958D4006C2E94 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		55B94A752389669E006C2E94 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55B94A742389669E006C2E94 /* en */,
+				55B94A76238966B9006C2E94 /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -9,16 +9,21 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import AVFoundation
 
-class ListEmployeesController: UITableViewController {
+class ListEmployeesController: UITableViewController, AVAudioPlayerDelegate {
     
     // MARK: Attributs
     let db = Firestore.firestore()
     var users: [Users] = []
+    var player: AVAudioPlayer!
+    
+    // MARK: Cycle de vie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setup()
         
     }
     
@@ -30,9 +35,8 @@ class ListEmployeesController: UITableViewController {
             loadUsersFromDB(dataBase: db)
         }
         
-        
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToCreateMission))
-        
+            mediaPlayer(son: "sound_on")
         
     }
     
@@ -99,7 +103,45 @@ class ListEmployeesController: UITableViewController {
         return users.count
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Création de notre cellule personnalisée
+        let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell") as! CellUsers
+        
+        
+        // Récupération de la mission courante dans la liste
+        let user = users[indexPath.row]
+        
+        // On rempli les différents champs de notre cellule avec la mission courante
+        cell.populate(users: user)
+        
+        return cell
+    }
+    
     // MARK: Private functions
+    
+    private func mediaPlayer(son: String) {
+        // On va jouer le son
+        if let soundFilePath = Bundle.main.path(forResource: son, ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                self.player.delegate = self
+                self.player.play()
+            }
+            catch { print("⛔️ Erreur lors de la lecture du son") }
+        }
+    }
+    
+    private func setup(){
+        
+        tableView.layer.borderColor = UIColor.darkText.cgColor
+        tableView.layer.borderWidth = 10.0
+        tableView.layoutMargins = UIEdgeInsets.zero
+        tableView.layoutMargins.left = 20
+        
+        
+    }
     
     private func loadUsersFromDB(dataBase: Firestore){
         
@@ -135,21 +177,6 @@ class ListEmployeesController: UITableViewController {
                 print("✅ Les utilisateurs sont correctement affichées !")
             }
         }
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // Création de notre cellule personnalisée
-        let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell") as! CellUsers
-        
-        // Récupération de la mission courante dans la liste
-        let user = users[indexPath.row]
-        
-        // On rempli les différents champs de notre cellule avec la mission courante
-        cell.populate(users: user)
-        
-
-        return cell
     }
     
 

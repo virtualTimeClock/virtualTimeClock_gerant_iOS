@@ -18,11 +18,14 @@ class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
     var missions: [Mission] = []
     var player: AVAudioPlayer!
     let deleteIcon = UIImage(named: "ic_delete")
-
+    
+    
+    // MARK: Cycle de vie
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //setup()
         
     }
     
@@ -37,16 +40,7 @@ class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
         
         
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToCreateMission))
-        // On va jouer le son 
-        if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
-            let fileURL = URL(fileURLWithPath: soundFilePath)
-            do {
-                try self.player = AVAudioPlayer(contentsOf: fileURL)
-                self.player.delegate = self
-                self.player.play()
-            }
-            catch { print("⛔️ Erreur lors de la lecture du son") }
-        }
+        mediaPlayer(son: "sound_on")
     }
     
     @objc func goToCreateMission(){
@@ -103,7 +97,31 @@ class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
         return missions.count
     }
     
+    
     // MARK: Private functions
+    
+    private func mediaPlayer(son: String) {
+        // On va jouer le son
+        if let soundFilePath = Bundle.main.path(forResource: son, ofType: "mp3") {
+            let fileURL = URL(fileURLWithPath: soundFilePath)
+            do {
+                try self.player = AVAudioPlayer(contentsOf: fileURL)
+                self.player.delegate = self
+                self.player.play()
+            }
+            catch { print("⛔️ Erreur lors de la lecture du son") }
+        }
+    }
+    
+    private func setup(){
+        
+        tableView.layer.borderColor = UIColor.darkText.cgColor
+        tableView.layer.borderWidth = 10.0
+        tableView.layoutMargins = UIEdgeInsets.zero
+        tableView.layoutMargins.left = 20
+        
+        
+    }
     
     private func loadMissionsFromDB(dataBase: Firestore){
         // Lecture des documents dans la collection "missions"
@@ -161,7 +179,7 @@ class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
         
         // Récupération de la mission courante dans la liste
         let mission = missions[indexPath.row]
-        print("Test dedans Table view \(self.missions[indexPath.row].id)")
+        
         
         // On rempli les différents champs de notre cellule avec la mission courante
         cell.populate(mission: mission)
@@ -199,16 +217,7 @@ class ListMissionController: UITableViewController, AVAudioPlayerDelegate {
             let mission = sender as! Mission
             destination.mission = mission
             
-            // On va jouer le son
-            if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
-                let fileURL = URL(fileURLWithPath: soundFilePath)
-                do {
-                    try self.player = AVAudioPlayer(contentsOf: fileURL)
-                    self.player.delegate = self
-                    self.player.play()
-                }
-                catch { print("⛔️ Erreur lors de la lecture du son") }
-            }
+            mediaPlayer(son: "sound_on")
         }
     }
 }

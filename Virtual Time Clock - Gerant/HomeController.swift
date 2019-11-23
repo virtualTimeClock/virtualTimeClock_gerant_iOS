@@ -29,6 +29,8 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
      let buttonIcon = UIImage(named: "ic_logout")
     
+    // MARK: Cycle de vie
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,18 +64,24 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.rightBarButtonItem = //UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(logOut))
             UIBarButtonItem(image: buttonIcon, style: UIBarButtonItem.Style.done, target: self, action: #selector(logOut))
+            mediaPlayer(son: "sound_off")
         //self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 216, green: 78, blue:33,  alpha: 1)
+       
     }
     
     @objc func logOut(){
         //Auth.auth().signOut()
         do {
             try Auth.auth().signOut()
+            mediaPlayer(son: "sound_on")
             performSegue(withIdentifier: "goBackLoginHome", sender: self)
+            self.view.makeToast(NSLocalizedString("deco", comment: "Labels"))
         } catch let signOutError as NSError {
             print ("⛔️ Erreur de déconnexion : \(signOutError)")
         }
     }
+    
+    // MARK: Private functions
     
     private func setup(){
         capture.layer.cornerRadius = 20
@@ -102,24 +110,15 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func captureAndSave(_ sender: Any) {
         
-        // On va jouer le son
-        if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
-            let fileURL = URL(fileURLWithPath: soundFilePath)
-            do {
-                try self.player = AVAudioPlayer(contentsOf: fileURL)
-                self.player.delegate = self
-                self.player.play()
-            }
-            catch { print("⛔️ Erreur lors de la lecture du son") }
-        }
+        self.mediaPlayer(son: "sound_on")
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         
-        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: NSLocalizedString("source", comment: "Labels"), message: NSLocalizedString("choose", comment: "Labels"), preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("camera", comment: "Labels"), style: .default, handler: { (action:UIAlertAction) in
             if UIImagePickerController.isSourceTypeAvailable(.camera){
                 
                 self.mediaPlayer(son: "sound_on")
@@ -132,12 +131,12 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("library", comment: "Labels"), style: .default, handler: { (action:UIAlertAction) in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Labels"), style: .cancel, handler: nil))
         
         self.present(actionSheet, animated: true, completion: nil)
         
@@ -146,17 +145,12 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        //let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        //let image = info[UIImagePickerController.InfoKey.cropRect] as! UIImage
         
         if let image = info[.editedImage] as? UIImage {
             img.image = image
         } else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             img.image = image
         }
-        
-        
-        
         
         //Lien avec l'espace de stockage du serveur Firebase
         let storage = Storage.storage()
@@ -166,8 +160,6 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //création des metadata avec le type de la ressource
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
-        
-        
         
         //mise en memoire sous forme de data
         if let uploadData = self.img.image!.jpegData(compressionQuality: 0.75) {
@@ -179,21 +171,10 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     
                 } else {
                     print("Image Upload sur le serveur")
-                    // On va jouer le son
-                    if let soundFilePath = Bundle.main.path(forResource: "sound_on", ofType: "mp3") {
-                        let fileURL = URL(fileURLWithPath: soundFilePath)
-                        do {
-                            try self.player = AVAudioPlayer(contentsOf: fileURL)
-                            self.player.delegate = self
-                            self.player.play()
-                        }
-                        catch { print("⛔️ Erreur lors de la lecture du son") }
-                    }
                     
+                    self.mediaPlayer(son: "sound_on")
                 }
            }
-        
-        
         picker.dismiss(animated: true, completion: nil)
         
     }
@@ -204,10 +185,7 @@ class HomeController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    
-    
+
     }
     
 }

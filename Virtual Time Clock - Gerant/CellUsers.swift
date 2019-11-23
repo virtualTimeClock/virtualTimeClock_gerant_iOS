@@ -12,11 +12,11 @@ class CellUsers: UITableViewCell {
     
     // MARK: Outlets
     
-    
     @IBOutlet weak var nom: UILabel!
     @IBOutlet weak var prenom: UILabel!
     @IBOutlet weak var date: UILabel!
     
+    // MARK: Cycle de vie
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +27,18 @@ class CellUsers: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // Changement des marges des cellules, de la bordure et du fond
+        let padding = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        contentView.frame = contentView.frame.inset(by: padding)
+        contentView.layer.borderWidth = 3
+        contentView.layer.borderColor = UIColor.black.cgColor
+        
+        
     }
     
     // Fonction qui va extraire les informations nécessaires dans une instance de Users donnée en paramètre
