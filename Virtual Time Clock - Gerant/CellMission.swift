@@ -22,6 +22,7 @@ class CellMission: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.backgroundColor = nil
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,12 +36,11 @@ class CellMission: UITableViewCell {
         super.layoutSubviews()
         
         // Changement des marges des cellules, de la bordure et du fond
-        let padding = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        let padding = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         contentView.frame = contentView.frame.inset(by: padding)
         contentView.layer.borderWidth = 3
         contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.layer.backgroundColor = CGColor.init(srgbRed: 216, green: 78, blue: 33, alpha: 1)
-        
+        contentView.layer.backgroundColor = UIColor.orange.cgColor
     }
     
     

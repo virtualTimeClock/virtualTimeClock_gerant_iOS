@@ -21,6 +21,7 @@ class CellUsers: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.backgroundColor = nil
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,7 +38,7 @@ class CellUsers: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: padding)
         contentView.layer.borderWidth = 3
         contentView.layer.borderColor = UIColor.black.cgColor
-        
+        contentView.layer.backgroundColor = UIColor.orange.cgColor
         
     }
     

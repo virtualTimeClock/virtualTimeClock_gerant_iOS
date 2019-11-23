@@ -320,6 +320,9 @@
                                     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <variation key="displayGamut=sRGB-heightClass=regular-widthClass=compact">
+                                    <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                </variation>
                                 <connections>
                                     <outlet property="date" destination="yZP-bE-Ok5" id="lV8-r9-6jQ"/>
                                     <outlet property="desc" destination="xQM-DW-3Uh" id="Ch5-vT-rP1"/>
@@ -351,7 +354,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FYe-iT-Elf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="usersCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="usersCell" rowHeight="43.5" id="N8z-3U-I9C" customClass="CellUsers" customModule="Virtual_Time_Clock___Gerant" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
@@ -382,8 +385,15 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <variation key="displayGamut=sRGB-heightClass=regular-widthClass=compact">
+                                        <color key="backgroundColor" red="0.84705882352941175" green="0.30588235294117649" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                    </variation>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.30588235289999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <variation key="displayGamut=sRGB-heightClass=regular-widthClass=compact">
+                                    <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                </variation>
                                 <connections>
                                     <outlet property="date" destination="d4T-Yd-hyZ" id="hjc-Ze-644"/>
                                     <outlet property="nom" destination="Q7E-vZ-xuQ" id="hgM-Ex-iMA"/>

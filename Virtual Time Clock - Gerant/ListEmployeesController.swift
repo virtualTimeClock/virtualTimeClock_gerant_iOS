@@ -108,7 +108,6 @@ class ListEmployeesController: UITableViewController, AVAudioPlayerDelegate {
         // Création de notre cellule personnalisée
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell") as! CellUsers
         
-        
         // Récupération de la mission courante dans la liste
         let user = users[indexPath.row]
         
